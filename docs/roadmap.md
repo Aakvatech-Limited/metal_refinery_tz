@@ -27,6 +27,7 @@
 
 ## Phase 5 — Reporting and readiness
 - [x] Initial operational count cards and grouped charts
-- [ ] Detailed operational and financial reconciliation reports
+- [x] Intake traceability, batch yield/variance, and custody/bar operational reports
+- [ ] Financial valuation and GL reconciliation reports (await ownership and posting specification)
 - [ ] Workflow/permission review for custody and release, two-party authenticated handover
 - [ ] Site UAT, multi-user concurrency, cancellation and regression tests
