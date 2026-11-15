@@ -1,0 +1,30 @@
+{
+  "doctype": "Dashboard",
+  "name": "Metal Refinery Operations",
+  "dashboard_name": "Metal Refinery Operations",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_default": 0,
+  "charts": [
+    {
+      "chart": "Refining Batches by Status"
+    },
+    {
+      "chart": "Assays by Status"
+    }
+  ],
+  "cards": [
+    {
+      "card": "Open Metal Intakes"
+    },
+    {
+      "card": "Pending Metal Assays"
+    },
+    {
+      "card": "Refining Batches"
+    },
+    {
+      "card": "Open Metal Exceptions"
+    }
+  ]
+}

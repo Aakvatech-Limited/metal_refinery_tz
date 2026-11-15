@@ -1,0 +1,171 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Purchase Settlement",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 1,
+  "istable": 0,
+  "issingle": 0,
+  "autoname": "format:MPST-{YYYY}-{#####}",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_intake",
+      "fieldtype": "Link",
+      "label": "Metal Intake",
+      "options": "Metal Intake",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "assay",
+      "fieldtype": "Link",
+      "label": "Approved Final Assay",
+      "options": "Metal Assay",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "price_fixing",
+      "fieldtype": "Link",
+      "label": "Price Fixing",
+      "options": "Metal Price Fixing",
+      "reqd": 1
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fine_weight",
+      "fieldtype": "Float",
+      "label": "Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "rate_per_fine_unit",
+      "fieldtype": "Currency",
+      "label": "Rate per Fine Weight Unit",
+      "options": "currency",
+      "read_only": 1
+    },
+    {
+      "fieldname": "gross_amount",
+      "fieldtype": "Currency",
+      "label": "Gross Amount",
+      "options": "currency",
+      "read_only": 1
+    },
+    {
+      "fieldname": "charges",
+      "fieldtype": "Table",
+      "label": "Charges and Deductions",
+      "options": "Metal Settlement Charge"
+    },
+    {
+      "fieldname": "total_deductions",
+      "fieldtype": "Currency",
+      "label": "Total Deductions",
+      "options": "currency",
+      "read_only": 1
+    },
+    {
+      "fieldname": "net_amount",
+      "fieldtype": "Currency",
+      "label": "Net Settlement Amount",
+      "options": "currency",
+      "read_only": 1
+    },
+    {
+      "fieldname": "purchase_invoice",
+      "fieldtype": "Link",
+      "label": "ERPNext Purchase Invoice",
+      "options": "Purchase Invoice",
+      "read_only": 1
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    }
+  ],
+  "field_order": [
+    "company",
+    "metal_intake",
+    "assay",
+    "metal_type",
+    "price_fixing",
+    "currency",
+    "fine_weight",
+    "rate_per_fine_unit",
+    "gross_amount",
+    "charges",
+    "total_deductions",
+    "net_amount",
+    "purchase_invoice",
+    "remarks"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

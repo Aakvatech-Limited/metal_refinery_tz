@@ -1,0 +1,71 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Intake Measurement",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 1,
+  "issingle": 0,
+  "autoname": "",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "measurement_type",
+      "fieldtype": "Select",
+      "label": "Type",
+      "options": "Initial\nVerification\nFinal",
+      "reqd": 1
+    },
+    {
+      "fieldname": "gross_weight",
+      "fieldtype": "Float",
+      "label": "Gross Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "tare_weight",
+      "fieldtype": "Float",
+      "label": "Tare Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "net_weight",
+      "fieldtype": "Float",
+      "label": "Net Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "measured_by",
+      "fieldtype": "Link",
+      "label": "Measured By",
+      "options": "User"
+    },
+    {
+      "fieldname": "measured_at",
+      "fieldtype": "Datetime",
+      "label": "Measured At"
+    }
+  ],
+  "field_order": [
+    "measurement_type",
+    "gross_weight",
+    "tare_weight",
+    "net_weight",
+    "uom",
+    "measured_by",
+    "measured_at"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

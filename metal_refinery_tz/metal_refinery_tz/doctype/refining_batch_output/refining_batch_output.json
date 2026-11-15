@@ -1,0 +1,72 @@
+{
+  "doctype": "DocType",
+  "name": "Refining Batch Output",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 1,
+  "issingle": 0,
+  "autoname": "",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "output_type",
+      "fieldtype": "Select",
+      "label": "Output Type",
+      "options": "Finished Metal\nRecoverable Residue\nSample\nProcess Loss\nClosing WIP",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Gross Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "purity_percent",
+      "fieldtype": "Percent",
+      "label": "Purity (%)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fine_weight",
+      "fieldtype": "Float",
+      "label": "Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    }
+  ],
+  "field_order": [
+    "output_type",
+    "metal_type",
+    "weight",
+    "purity_percent",
+    "fine_weight",
+    "uom",
+    "remarks"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

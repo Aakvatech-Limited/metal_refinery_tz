@@ -1,0 +1,182 @@
+{
+  "doctype": "Workspace",
+  "name": "Metal Refinery TZ",
+  "label": "Metal Refinery TZ",
+  "title": "Metal Refinery TZ",
+  "module": "Metal Refinery TZ",
+  "standard": 1,
+  "public": 1,
+  "type": "Workspace",
+  "icon": "factory",
+  "is_hidden": 0,
+  "content": "[{\"id\":\"mr00000000\",\"type\":\"header\",\"data\":{\"text\":\"Refinery Operations\",\"col\":12}},{\"id\":\"mr00000001\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Metal Intakes\",\"col\":3}},{\"id\":\"mr00000002\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Metal Assays\",\"col\":3}},{\"id\":\"mr00000003\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Refining Batches\",\"col\":3}},{\"id\":\"mr00000004\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Metal Exceptions\",\"col\":3}},{\"id\":\"mr00000005\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Refining Batches by Status\",\"col\":6}},{\"id\":\"mr00000006\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Assays by Status\",\"col\":6}},{\"id\":\"mr00000007\",\"type\":\"card\",\"data\":{\"card_name\":\"Daily Operations\",\"col\":6}},{\"id\":\"mr00000008\",\"type\":\"card\",\"data\":{\"card_name\":\"Settlement & Pricing\",\"col\":6}},{\"id\":\"mr00000009\",\"type\":\"card\",\"data\":{\"card_name\":\"Traceability & Reconciliation\",\"col\":6}},{\"id\":\"mr00000010\",\"type\":\"card\",\"data\":{\"card_name\":\"Reference Masters\",\"col\":6}},{\"id\":\"mr00000011\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Intake\",\"col\":3}},{\"id\":\"mr00000012\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Assay\",\"col\":3}},{\"id\":\"mr00000013\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Refining Batch\",\"col\":3}},{\"id\":\"mr00000014\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Purchase Settlement\",\"col\":3}}]",
+  "charts": [
+    {
+      "chart_name": "Refining Batches by Status"
+    },
+    {
+      "chart_name": "Assays by Status"
+    }
+  ],
+  "number_cards": [
+    {
+      "number_card_name": "Open Metal Intakes"
+    },
+    {
+      "number_card_name": "Pending Metal Assays"
+    },
+    {
+      "number_card_name": "Refining Batches"
+    },
+    {
+      "number_card_name": "Open Metal Exceptions"
+    }
+  ],
+  "links": [
+    {
+      "type": "Card Break",
+      "label": "Daily Operations",
+      "link_count": 4
+    },
+    {
+      "type": "Link",
+      "label": "Metal Intake",
+      "link_type": "DocType",
+      "link_to": "Metal Intake",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Metal Assay",
+      "link_type": "DocType",
+      "link_to": "Metal Assay",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Refining Batch",
+      "link_type": "DocType",
+      "link_to": "Refining Batch",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Refining Operation",
+      "link_type": "DocType",
+      "link_to": "Refining Operation",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Card Break",
+      "label": "Settlement & Pricing",
+      "link_count": 2
+    },
+    {
+      "type": "Link",
+      "label": "Metal Price Fixing",
+      "link_type": "DocType",
+      "link_to": "Metal Price Fixing",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Metal Purchase Settlement",
+      "link_type": "DocType",
+      "link_to": "Metal Purchase Settlement",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Card Break",
+      "label": "Traceability & Reconciliation",
+      "link_count": 3
+    },
+    {
+      "type": "Link",
+      "label": "Metal Lot",
+      "link_type": "DocType",
+      "link_to": "Metal Lot",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Refining Batch Reconciliation",
+      "link_type": "DocType",
+      "link_to": "Refining Batch Reconciliation",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Metal Exception",
+      "link_type": "DocType",
+      "link_to": "Metal Exception",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Card Break",
+      "label": "Reference Masters",
+      "link_count": 3
+    },
+    {
+      "type": "Link",
+      "label": "Metal Type",
+      "link_type": "DocType",
+      "link_to": "Metal Type",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Assay Method",
+      "link_type": "DocType",
+      "link_to": "Assay Method",
+      "hidden": 0,
+      "link_count": 0
+    },
+    {
+      "type": "Link",
+      "label": "Metal Refinery Settings",
+      "link_type": "DocType",
+      "link_to": "Metal Refinery Settings",
+      "hidden": 0,
+      "link_count": 0
+    }
+  ],
+  "shortcuts": [
+    {
+      "type": "DocType",
+      "link_to": "Metal Intake",
+      "label": "Metal Intake",
+      "doc_view": "List"
+    },
+    {
+      "type": "DocType",
+      "link_to": "Metal Assay",
+      "label": "Metal Assay",
+      "doc_view": "List"
+    },
+    {
+      "type": "DocType",
+      "link_to": "Refining Batch",
+      "label": "Refining Batch",
+      "doc_view": "List"
+    },
+    {
+      "type": "DocType",
+      "link_to": "Metal Purchase Settlement",
+      "label": "Metal Purchase Settlement",
+      "doc_view": "List"
+    }
+  ],
+  "roles": [],
+  "quick_lists": [],
+  "custom_blocks": []
+}

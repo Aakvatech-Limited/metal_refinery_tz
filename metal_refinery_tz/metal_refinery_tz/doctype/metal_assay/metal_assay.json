@@ -1,0 +1,146 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Assay",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 1,
+  "istable": 0,
+  "issingle": 0,
+  "autoname": "format:MASY-{YYYY}-{#####}",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_intake",
+      "fieldtype": "Link",
+      "label": "Metal Intake",
+      "options": "Metal Intake",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sample_id",
+      "fieldtype": "Data",
+      "label": "Sample ID",
+      "reqd": 1
+    },
+    {
+      "fieldname": "method",
+      "fieldtype": "Link",
+      "label": "Assay Method",
+      "options": "Assay Method",
+      "reqd": 1
+    },
+    {
+      "fieldname": "assay_date",
+      "fieldtype": "Date",
+      "label": "Assay Date",
+      "reqd": 1,
+      "default": "Today"
+    },
+    {
+      "fieldname": "sample_weight",
+      "fieldtype": "Float",
+      "label": "Sample Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "results",
+      "fieldtype": "Table",
+      "label": "Results",
+      "options": "Metal Assay Result",
+      "reqd": 1
+    },
+    {
+      "fieldname": "assay_status",
+      "fieldtype": "Select",
+      "label": "Result Status",
+      "options": "Provisional\nFinal",
+      "reqd": 1,
+      "default": "Provisional"
+    },
+    {
+      "fieldname": "supersedes",
+      "fieldtype": "Link",
+      "label": "Supersedes Assay",
+      "options": "Metal Assay"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    }
+  ],
+  "field_order": [
+    "company",
+    "metal_intake",
+    "sample_id",
+    "method",
+    "assay_date",
+    "sample_weight",
+    "uom",
+    "results",
+    "assay_status",
+    "supersedes",
+    "remarks"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

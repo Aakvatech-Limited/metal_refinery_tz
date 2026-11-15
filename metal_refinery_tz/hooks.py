@@ -1,16 +1,20 @@
-"""Frappe application hooks for Metal Refinery TZ.
-
-The app starts with no custom documents, exports or patches.
-Declare app navigation only after the corresponding standard Workspace exists.
-"""
-
+"""Metal Refinery TZ hooks."""
 app_name = "metal_refinery_tz"
 app_title = "Metal Refinery TZ"
 app_publisher = "Aakvatech Limited"
-app_description = "Operational traceability and controls for precious metal refineries"
+app_description = "Traceability and operational controls for precious metal refineries"
 app_email = "info@aakvatech.com"
 app_license = "mit"
 required_apps = ["erpnext"]
+app_logo_url = "/assets/metal_refinery_tz/images/metal_refinery_tz.svg"
+app_home = "/desk/metal-refinery-tz"
 
-# v16 app entry / Dock / Sidebars / Workspaces will be exported together
-# once a live development-mode site validates their native schemas.
+add_to_apps_screen = [
+    {
+        "name": app_name,
+        "logo": app_logo_url,
+        "title": app_title,
+        "route": app_home,
+        "sequence_id": 30,
+    }
+]

@@ -1,0 +1,49 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Intake Sample",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 1,
+  "issingle": 0,
+  "autoname": "",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "sample_id",
+      "fieldtype": "Data",
+      "label": "Sample ID",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sample_weight",
+      "fieldtype": "Float",
+      "label": "Sample Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "field_order": [
+    "sample_id",
+    "sample_weight",
+    "uom",
+    "notes"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

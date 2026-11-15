@@ -1,0 +1,43 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Assay Result",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 1,
+  "issingle": 0,
+  "autoname": "",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "purity_percent",
+      "fieldtype": "Percent",
+      "label": "Purity (%)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fine_metal_weight",
+      "fieldtype": "Float",
+      "label": "Fine Metal Weight",
+      "read_only": 1
+    }
+  ],
+  "field_order": [
+    "metal_type",
+    "purity_percent",
+    "fine_metal_weight"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

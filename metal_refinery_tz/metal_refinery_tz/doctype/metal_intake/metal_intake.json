@@ -1,0 +1,173 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Intake",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 1,
+  "istable": 0,
+  "issingle": 0,
+  "autoname": "format:MINT-{YYYY}-{#####}",
+  "title_field": "party",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Intake Date",
+      "reqd": 1,
+      "default": "Today"
+    },
+    {
+      "fieldname": "party_type",
+      "fieldtype": "Select",
+      "label": "Party Type",
+      "options": "Supplier\nCustomer",
+      "reqd": 1
+    },
+    {
+      "fieldname": "party",
+      "fieldtype": "Dynamic Link",
+      "label": "Supplier / Customer",
+      "options": "party_type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "ownership",
+      "fieldtype": "Select",
+      "label": "Ownership",
+      "options": "Company Owned\nCustomer Owned",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_form",
+      "fieldtype": "Data",
+      "label": "Metal Form"
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Intake Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "measurements",
+      "fieldtype": "Table",
+      "label": "Measurements",
+      "options": "Metal Intake Measurement",
+      "reqd": 1
+    },
+    {
+      "fieldname": "samples",
+      "fieldtype": "Table",
+      "label": "Samples",
+      "options": "Metal Intake Sample"
+    },
+    {
+      "fieldname": "net_weight",
+      "fieldtype": "Float",
+      "label": "Final Net Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "read_only": 1
+    },
+    {
+      "fieldname": "metal_lot",
+      "fieldtype": "Link",
+      "label": "Metal Lot",
+      "options": "Metal Lot",
+      "read_only": 1
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "source_reference",
+      "fieldtype": "Data",
+      "label": "External Reference"
+    }
+  ],
+  "field_order": [
+    "company",
+    "posting_date",
+    "party_type",
+    "party",
+    "ownership",
+    "metal_type",
+    "metal_form",
+    "warehouse",
+    "measurements",
+    "samples",
+    "net_weight",
+    "uom",
+    "metal_lot",
+    "remarks",
+    "source_reference"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

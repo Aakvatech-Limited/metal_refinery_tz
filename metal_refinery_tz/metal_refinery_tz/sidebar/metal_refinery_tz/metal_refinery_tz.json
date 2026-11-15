@@ -1,0 +1,125 @@
+{
+  "doctype": "Sidebar",
+  "name": "Metal Refinery TZ",
+  "app": "metal_refinery_tz",
+  "module": "Metal Refinery TZ",
+  "title": "Metal Refinery TZ",
+  "header_icon": "factory",
+  "standard": 1,
+  "items": [
+    {
+      "type": "Link",
+      "label": "Overview",
+      "icon": "house",
+      "link_type": "Workspace",
+      "link_to": "Metal Refinery TZ"
+    },
+    {
+      "type": "Link",
+      "label": "Operations Dashboard",
+      "icon": "chart-column",
+      "link_type": "Dashboard",
+      "link_to": "Metal Refinery Operations"
+    },
+    {
+      "type": "Section Break",
+      "label": "Daily Operations"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Intake",
+      "icon": "scale",
+      "link_type": "DocType",
+      "link_to": "Metal Intake"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Assay",
+      "icon": "flask-conical",
+      "link_type": "DocType",
+      "link_to": "Metal Assay"
+    },
+    {
+      "type": "Link",
+      "label": "Refining Batch",
+      "icon": "factory",
+      "link_type": "DocType",
+      "link_to": "Refining Batch"
+    },
+    {
+      "type": "Link",
+      "label": "Refining Operation",
+      "icon": "cog",
+      "link_type": "DocType",
+      "link_to": "Refining Operation"
+    },
+    {
+      "type": "Section Break",
+      "label": "Settlement & Pricing"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Price Fixing",
+      "icon": "hand-coins",
+      "link_type": "DocType",
+      "link_to": "Metal Price Fixing"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Purchase Settlement",
+      "icon": "receipt",
+      "link_type": "DocType",
+      "link_to": "Metal Purchase Settlement"
+    },
+    {
+      "type": "Section Break",
+      "label": "Traceability & Reconciliation"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Lot",
+      "icon": "boxes",
+      "link_type": "DocType",
+      "link_to": "Metal Lot"
+    },
+    {
+      "type": "Link",
+      "label": "Refining Batch Reconciliation",
+      "icon": "clipboard-check",
+      "link_type": "DocType",
+      "link_to": "Refining Batch Reconciliation"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Exception",
+      "icon": "shield-alert",
+      "link_type": "DocType",
+      "link_to": "Metal Exception"
+    },
+    {
+      "type": "Section Break",
+      "label": "Reference Masters"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Type",
+      "icon": "gem",
+      "link_type": "DocType",
+      "link_to": "Metal Type"
+    },
+    {
+      "type": "Link",
+      "label": "Assay Method",
+      "icon": "microscope",
+      "link_type": "DocType",
+      "link_to": "Assay Method"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Refinery Settings",
+      "icon": "settings",
+      "link_type": "DocType",
+      "link_to": "Metal Refinery Settings"
+    }
+  ]
+}

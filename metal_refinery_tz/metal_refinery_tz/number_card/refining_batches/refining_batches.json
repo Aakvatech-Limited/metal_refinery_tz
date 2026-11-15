@@ -1,0 +1,14 @@
+{
+  "doctype": "Number Card",
+  "name": "Refining Batches",
+  "label": "Refining Batches",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_public": 1,
+  "type": "Document Type",
+  "document_type": "Refining Batch",
+  "function": "Count",
+  "filters_json": "[[\"docstatus\",\"!=\",2]]",
+  "dynamic_filters_json": "[]",
+  "show_percentage_stats": 0
+}
