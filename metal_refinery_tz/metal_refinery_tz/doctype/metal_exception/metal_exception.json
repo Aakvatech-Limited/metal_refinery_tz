@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Exception Identification"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -23,6 +28,10 @@
       "label": "Exception Type",
       "options": "Assay Variance\nRefining Variance\nCustody Variance\nPricing Override\nOther\nExport Compliance",
       "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "reference_doctype",
@@ -39,16 +48,30 @@
       "reqd": 1
     },
     {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Finding & Resolution"
+    },
+    {
       "fieldname": "description",
       "fieldtype": "Small Text",
       "label": "Description",
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "resolution",
       "fieldtype": "Small Text",
       "label": "Resolution",
       "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Review & Approval"
     },
     {
       "fieldname": "approved_by",
@@ -63,12 +86,17 @@
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "exception_type",
+    "column_layout_1_2",
     "reference_doctype",
     "reference_name",
+    "section_layout_02",
     "description",
+    "column_layout_2_2",
     "resolution",
+    "section_layout_03",
     "approved_by",
     "approval_date"
   ],

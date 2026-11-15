@@ -11,27 +11,39 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Assay Method"
+    },
+    {
       "fieldname": "method_name",
       "fieldtype": "Data",
       "label": "Method Name",
       "reqd": 1
     },
     {
-      "fieldname": "notes",
-      "fieldtype": "Small Text",
-      "label": "Method Notes"
-    },
-    {
       "fieldname": "is_active",
       "fieldtype": "Check",
       "label": "Active",
       "default": "1"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Method Description"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Method Notes"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "method_name",
-    "notes",
-    "is_active"
+    "is_active",
+    "section_layout_02",
+    "notes"
   ],
   "permissions": [
     {

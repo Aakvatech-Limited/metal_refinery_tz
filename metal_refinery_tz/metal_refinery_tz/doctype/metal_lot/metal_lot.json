@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Lot Origin"
+    },
+    {
       "fieldname": "intake",
       "fieldtype": "Link",
       "label": "Metal Intake",
@@ -26,11 +31,28 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "metal_type",
       "fieldtype": "Link",
       "label": "Metal Type",
       "options": "Metal Type",
       "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Lot Status",
+      "options": "Available\nIn Process\nClosed",
+      "default": "Available",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Ownership & Location"
     },
     {
       "fieldname": "ownership",
@@ -52,10 +74,29 @@
       "options": "owner_party_type"
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Custody Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Lot Measurement"
+    },
+    {
       "fieldname": "initial_weight",
       "fieldtype": "Float",
       "label": "Initial Weight",
       "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_3_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "uom",
@@ -65,18 +106,9 @@
       "reqd": 1
     },
     {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "label": "Lot Status",
-      "options": "Available\nIn Process\nClosed",
-      "default": "Available",
-      "read_only": 1
-    },
-    {
-      "fieldname": "warehouse",
-      "fieldtype": "Link",
-      "label": "Custody Warehouse",
-      "options": "Warehouse"
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Notes"
     },
     {
       "fieldname": "notes",
@@ -85,16 +117,23 @@
     }
   ],
   "field_order": [
+    "section_layout_01",
     "intake",
     "company",
+    "column_layout_1_2",
     "metal_type",
+    "status",
+    "section_layout_02",
     "ownership",
     "owner_party_type",
     "owner_party",
-    "initial_weight",
-    "uom",
-    "status",
+    "column_layout_2_2",
     "warehouse",
+    "section_layout_03",
+    "initial_weight",
+    "column_layout_3_2",
+    "uom",
+    "section_layout_04",
     "notes"
   ],
   "permissions": [

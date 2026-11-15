@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Weight & Recovery Defaults"
+    },
+    {
       "fieldname": "default_weight_uom",
       "fieldtype": "Link",
       "label": "Default Weight UOM",
@@ -25,10 +30,19 @@
       "description": "Maximum precision used in computed quantity fields"
     },
     {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "default_loss_tolerance",
       "fieldtype": "Float",
       "label": "Default Loss Tolerance (weight units)",
       "default": "0"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Ownership & Posting Controls"
     },
     {
       "fieldname": "enforce_separate_ownership",
@@ -36,6 +50,10 @@
       "label": "Track Ownership Separately",
       "default": "1",
       "read_only": 1
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "allow_erpnext_auto_posting",
@@ -47,10 +65,14 @@
     }
   ],
   "field_order": [
+    "section_layout_01",
     "default_weight_uom",
     "fine_weight_precision",
+    "column_layout_1_2",
     "default_loss_tolerance",
+    "section_layout_02",
     "enforce_separate_ownership",
+    "column_layout_2_2",
     "allow_erpnext_auto_posting"
   ],
   "permissions": [

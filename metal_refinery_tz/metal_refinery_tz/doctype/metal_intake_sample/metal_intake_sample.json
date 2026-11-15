@@ -14,25 +14,32 @@
       "fieldname": "sample_id",
       "fieldtype": "Data",
       "label": "Sample ID",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "sample_weight",
       "fieldtype": "Float",
       "label": "Sample Weight",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "uom",
       "fieldtype": "Link",
       "label": "UOM",
       "options": "UOM",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "notes",
       "fieldtype": "Small Text",
-      "label": "Notes"
+      "label": "Notes",
+      "in_list_view": 0
     }
   ],
   "field_order": [

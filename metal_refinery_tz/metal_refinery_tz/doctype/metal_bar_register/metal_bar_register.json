@@ -10,11 +10,9 @@
   "track_changes": 1,
   "fields": [
     {
-      "fieldname": "company",
-      "fieldtype": "Link",
-      "label": "Company",
-      "options": "Company",
-      "reqd": 1
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Bar Identification"
     },
     {
       "fieldname": "bar_id",
@@ -22,6 +20,17 @@
       "label": "Bar ID",
       "reqd": 1,
       "unique": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "refining_batch",
@@ -38,6 +47,21 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "In Vault\nReleased"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Ownership & Custody"
+    },
+    {
       "fieldname": "ownership",
       "fieldtype": "Select",
       "label": "Ownership",
@@ -51,10 +75,41 @@
       "options": "Customer"
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "certificate",
+      "fieldtype": "Data",
+      "label": "Assay Certificate Reference"
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Weight & Fineness"
+    },
+    {
       "fieldname": "weight",
       "fieldtype": "Float",
       "label": "Gross Weight",
       "reqd": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_3_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "purity_percent",
@@ -67,46 +122,29 @@
       "fieldtype": "Float",
       "label": "Fine Weight",
       "read_only": 1
-    },
-    {
-      "fieldname": "uom",
-      "fieldtype": "Link",
-      "label": "UOM",
-      "options": "UOM",
-      "reqd": 1
-    },
-    {
-      "fieldname": "warehouse",
-      "fieldtype": "Link",
-      "label": "Warehouse",
-      "options": "Warehouse"
-    },
-    {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "label": "Status",
-      "options": "In Vault\nReleased"
-    },
-    {
-      "fieldname": "certificate",
-      "fieldtype": "Data",
-      "label": "Assay Certificate Reference"
     }
   ],
   "field_order": [
-    "company",
+    "section_layout_01",
     "bar_id",
+    "company",
+    "column_layout_1_2",
     "refining_batch",
     "metal_type",
+    "column_layout_1_3",
+    "status",
+    "section_layout_02",
     "ownership",
     "owner_customer",
-    "weight",
-    "purity_percent",
-    "fine_weight",
-    "uom",
+    "column_layout_2_2",
     "warehouse",
-    "status",
-    "certificate"
+    "certificate",
+    "section_layout_03",
+    "weight",
+    "uom",
+    "column_layout_3_2",
+    "purity_percent",
+    "fine_weight"
   ],
   "permissions": [
     {

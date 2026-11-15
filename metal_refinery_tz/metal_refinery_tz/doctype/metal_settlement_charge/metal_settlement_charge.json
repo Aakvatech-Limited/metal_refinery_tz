@@ -14,14 +14,18 @@
       "fieldname": "description",
       "fieldtype": "Data",
       "label": "Description",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 3
     },
     {
       "fieldname": "amount",
       "fieldtype": "Currency",
       "label": "Charge / Deduction",
       "reqd": 1,
-      "description": "Positive is a deduction; negative adds to payable"
+      "description": "Positive is a deduction; negative adds to payable",
+      "in_list_view": 1,
+      "columns": 2
     }
   ],
   "field_order": [

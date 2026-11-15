@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Intake Overview"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -23,6 +28,10 @@
       "label": "Intake Date",
       "reqd": 1,
       "default": "Today"
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "party_type",
@@ -39,11 +48,25 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "ownership",
       "fieldtype": "Select",
       "label": "Ownership",
       "options": "Company Owned\nCustomer Owned",
       "reqd": 1
+    },
+    {
+      "fieldname": "source_reference",
+      "fieldtype": "Data",
+      "label": "External Reference"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Metal & Custody"
     },
     {
       "fieldname": "metal_type",
@@ -58,23 +81,25 @@
       "label": "Metal Form"
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "warehouse",
       "fieldtype": "Link",
       "label": "Intake Warehouse",
       "options": "Warehouse"
     },
     {
-      "fieldname": "measurements",
-      "fieldtype": "Table",
-      "label": "Measurements",
-      "options": "Metal Intake Measurement",
-      "reqd": 1
+      "fieldname": "metal_lot",
+      "fieldtype": "Link",
+      "label": "Metal Lot",
+      "options": "Metal Lot",
+      "read_only": 1
     },
     {
-      "fieldname": "samples",
-      "fieldtype": "Table",
-      "label": "Samples",
-      "options": "Metal Intake Sample"
+      "fieldname": "column_layout_2_3",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "net_weight",
@@ -90,39 +115,64 @@
       "read_only": 1
     },
     {
-      "fieldname": "metal_lot",
-      "fieldtype": "Link",
-      "label": "Metal Lot",
-      "options": "Metal Lot",
-      "read_only": 1
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Weighing Measurements"
+    },
+    {
+      "fieldname": "measurements",
+      "fieldtype": "Table",
+      "label": "Measurements",
+      "options": "Metal Intake Measurement",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Sampling"
+    },
+    {
+      "fieldname": "samples",
+      "fieldtype": "Table",
+      "label": "Samples",
+      "options": "Metal Intake Sample"
+    },
+    {
+      "fieldname": "section_layout_05",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
     },
     {
       "fieldname": "remarks",
       "fieldtype": "Small Text",
       "label": "Remarks"
-    },
-    {
-      "fieldname": "source_reference",
-      "fieldtype": "Data",
-      "label": "External Reference"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "posting_date",
+    "column_layout_1_2",
     "party_type",
     "party",
+    "column_layout_1_3",
     "ownership",
+    "source_reference",
+    "section_layout_02",
     "metal_type",
     "metal_form",
+    "column_layout_2_2",
     "warehouse",
-    "measurements",
-    "samples",
+    "metal_lot",
+    "column_layout_2_3",
     "net_weight",
     "uom",
-    "metal_lot",
-    "remarks",
-    "source_reference"
+    "section_layout_03",
+    "measurements",
+    "section_layout_04",
+    "samples",
+    "section_layout_05",
+    "remarks"
   ],
   "permissions": [
     {

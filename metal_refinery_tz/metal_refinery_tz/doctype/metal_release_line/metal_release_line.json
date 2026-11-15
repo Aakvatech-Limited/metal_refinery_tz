@@ -15,25 +15,33 @@
       "label": "Bar",
       "options": "Metal Bar Register",
       "reqd": 1,
-      "unique": 1
+      "unique": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "gross_weight",
       "fieldtype": "Float",
       "label": "Gross Weight",
-      "read_only": 1
+      "read_only": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "fine_weight",
       "fieldtype": "Float",
       "label": "Fine Weight",
-      "read_only": 1
+      "read_only": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "uom",
       "fieldtype": "Link",
       "label": "UOM",
-      "options": "UOM"
+      "options": "UOM",
+      "in_list_view": 1,
+      "columns": 2
     }
   ],
   "field_order": [
@@ -44,5 +52,6 @@
   ],
   "permissions": [],
   "sort_field": "modified",
-  "sort_order": "DESC"
+  "sort_order": "DESC",
+  "editable_grid": 1
 }

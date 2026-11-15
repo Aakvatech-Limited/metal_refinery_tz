@@ -14,32 +14,41 @@
       "fieldtype": "Link",
       "label": "Metal Lot",
       "options": "Metal Lot",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "recorded_weight",
       "fieldtype": "Float",
       "label": "Recorded Weight",
-      "read_only": 1
+      "read_only": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "counted_weight",
       "fieldtype": "Float",
       "label": "Counted Weight",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "variance",
       "fieldtype": "Float",
       "label": "Variance",
-      "read_only": 1
+      "read_only": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "uom",
       "fieldtype": "Link",
       "label": "UOM",
       "options": "UOM",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 0
     }
   ],
   "field_order": [
@@ -51,5 +60,6 @@
   ],
   "permissions": [],
   "sort_field": "modified",
-  "sort_order": "DESC"
+  "sort_order": "DESC",
+  "editable_grid": 1
 }

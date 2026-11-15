@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Metal Classification"
+    },
+    {
       "fieldname": "metal_name",
       "fieldtype": "Data",
       "label": "Metal Name",
@@ -22,22 +27,28 @@
       "label": "Chemical Symbol"
     },
     {
-      "fieldname": "is_active",
-      "fieldtype": "Check",
-      "label": "Active",
-      "default": "1"
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "default_purity",
       "fieldtype": "Percent",
       "label": "Default Purity (%)"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": "1"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "metal_name",
     "symbol",
-    "is_active",
-    "default_purity"
+    "column_layout_1_2",
+    "default_purity",
+    "is_active"
   ],
   "permissions": [
     {

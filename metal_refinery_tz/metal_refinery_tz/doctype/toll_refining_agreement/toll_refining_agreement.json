@@ -10,6 +10,11 @@
   "track_changes": 1,
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Agreement Parties"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -24,16 +29,13 @@
       "reqd": 1
     },
     {
-      "fieldname": "valid_from",
-      "fieldtype": "Date",
-      "label": "Valid From",
-      "reqd": 1
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
-      "fieldname": "valid_to",
-      "fieldtype": "Date",
-      "label": "Valid Until",
-      "reqd": 1
+      "fieldname": "external_reference",
+      "fieldtype": "Data",
+      "label": "Contract Reference"
     },
     {
       "fieldname": "currency",
@@ -43,6 +45,32 @@
       "reqd": 1
     },
     {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Validity"
+    },
+    {
+      "fieldname": "valid_from",
+      "fieldtype": "Date",
+      "label": "Valid From",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "valid_to",
+      "fieldtype": "Date",
+      "label": "Valid Until",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Metal Refining Tariffs"
+    },
+    {
       "fieldname": "rates",
       "fieldtype": "Table",
       "label": "Refining Rates",
@@ -50,25 +78,31 @@
       "reqd": 1
     },
     {
-      "fieldname": "terms",
-      "fieldtype": "Small Text",
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
       "label": "Terms"
     },
     {
-      "fieldname": "external_reference",
-      "fieldtype": "Data",
-      "label": "Contract Reference"
+      "fieldname": "terms",
+      "fieldtype": "Small Text",
+      "label": "Terms"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "customer",
-    "valid_from",
-    "valid_to",
+    "column_layout_1_2",
+    "external_reference",
     "currency",
+    "section_layout_02",
+    "valid_from",
+    "column_layout_2_2",
+    "valid_to",
+    "section_layout_03",
     "rates",
-    "terms",
-    "external_reference"
+    "section_layout_04",
+    "terms"
   ],
   "permissions": [
     {

@@ -15,44 +15,55 @@
       "fieldtype": "Select",
       "label": "Output Type",
       "options": "Finished Metal\nRecoverable Residue\nSample\nProcess Loss\nClosing WIP",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "metal_type",
       "fieldtype": "Link",
       "label": "Metal Type",
       "options": "Metal Type",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 0
     },
     {
       "fieldname": "weight",
       "fieldtype": "Float",
       "label": "Gross Weight",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "purity_percent",
       "fieldtype": "Percent",
       "label": "Purity (%)",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "fine_weight",
       "fieldtype": "Float",
       "label": "Fine Weight",
-      "read_only": 1
+      "read_only": 1,
+      "in_list_view": 1,
+      "columns": 2
     },
     {
       "fieldname": "uom",
       "fieldtype": "Link",
       "label": "Weight UOM",
       "options": "UOM",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 0
     },
     {
       "fieldname": "remarks",
       "fieldtype": "Small Text",
-      "label": "Remarks"
+      "label": "Remarks",
+      "in_list_view": 0
     }
   ],
   "field_order": [

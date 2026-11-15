@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Assay & Sample"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -23,6 +28,10 @@
       "label": "Metal Intake",
       "options": "Metal Intake",
       "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "sample_id",
@@ -38,11 +47,28 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "assay_date",
       "fieldtype": "Date",
       "label": "Assay Date",
       "reqd": 1,
       "default": "Today"
+    },
+    {
+      "fieldname": "assay_status",
+      "fieldtype": "Select",
+      "label": "Result Status",
+      "options": "Provisional\nFinal",
+      "reqd": 1,
+      "default": "Provisional"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Sample Measurement"
     },
     {
       "fieldname": "sample_weight",
@@ -58,19 +84,8 @@
       "reqd": 1
     },
     {
-      "fieldname": "results",
-      "fieldtype": "Table",
-      "label": "Results",
-      "options": "Metal Assay Result",
-      "reqd": 1
-    },
-    {
-      "fieldname": "assay_status",
-      "fieldtype": "Select",
-      "label": "Result Status",
-      "options": "Provisional\nFinal",
-      "reqd": 1,
-      "default": "Provisional"
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "supersedes",
@@ -79,22 +94,46 @@
       "options": "Metal Assay"
     },
     {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Assay Results"
+    },
+    {
+      "fieldname": "results",
+      "fieldtype": "Table",
+      "label": "Results",
+      "options": "Metal Assay Result",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
+    },
+    {
       "fieldname": "remarks",
       "fieldtype": "Small Text",
       "label": "Remarks"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "metal_intake",
+    "column_layout_1_2",
     "sample_id",
     "method",
+    "column_layout_1_3",
     "assay_date",
+    "assay_status",
+    "section_layout_02",
     "sample_weight",
     "uom",
-    "results",
-    "assay_status",
+    "column_layout_2_2",
     "supersedes",
+    "section_layout_03",
+    "results",
+    "section_layout_04",
     "remarks"
   ],
   "permissions": [
