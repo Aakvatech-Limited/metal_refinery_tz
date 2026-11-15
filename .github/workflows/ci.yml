@@ -1,0 +1,34 @@
+name: Foundation checks
+
+on:
+  push:
+    branches: [version-16, version-16-hotfix]
+  pull_request:
+    branches: [version-16, version-16-hotfix]
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate TOML and basic app metadata
+        run: |
+          python - <<'PY'
+          import pathlib
+          import tomllib
+          import ast
+          root = pathlib.Path(".")
+          data = tomllib.loads((root / "pyproject.toml").read_text())
+          assert data["project"]["name"] == "metal_refinery_tz"
+          deps = data["tool"]["bench"]["frappe-dependencies"]
+          assert "frappe" in deps and "erpnext" in deps
+          assert (root / "metal_refinery_tz" / "modules.txt").read_text().strip() == "Metal Refinery TZ"
+          for path in root.glob("metal_refinery_tz/**/*.py"):
+              ast.parse(path.read_text(), filename=str(path))
+          print("Foundation metadata and Python syntax OK")
+          PY
+      - name: Check compile
+        run: python -m compileall -q metal_refinery_tz
