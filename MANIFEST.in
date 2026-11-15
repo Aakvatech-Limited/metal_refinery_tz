@@ -1,0 +1,3 @@
+recursive-include metal_refinery_tz *.json *.js *.css *.svg *.html *.md *.txt
+recursive-include metal_refinery_tz/public *
+include README.md
