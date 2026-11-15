@@ -28,6 +28,16 @@ for path in (MODULE / "doctype").glob("*/*.json"):
     assert len({f["fieldname"] for f in data["fields"]}) == len(data["fields"]), path
     assert set(data["field_order"]) == {f["fieldname"] for f in data["fields"]}, path
     assert not (data.get("autoname") or "").startswith("format:") or "{#####}" in data["autoname"], path
+    # Frappe dynamically imports controllers for child tables during DocType sync.
+    # An __init__.py alone is not sufficient; the DocType-named module must exist.
+    controller = path.with_suffix(".py")
+    assert controller.is_file(), f"Missing DocType controller: {controller}"
+    expected_class = "".join(part.title() for part in path.stem.split("_"))
+    module_ast = ast.parse(controller.read_text(), filename=str(controller))
+    declared_classes = {node.name for node in module_ast.body if isinstance(node, ast.ClassDef)}
+    assert expected_class in declared_classes, (
+        f"Controller {controller} does not define {expected_class}"
+    )
     doctypes[data["name"]] = data
 
 known = {
