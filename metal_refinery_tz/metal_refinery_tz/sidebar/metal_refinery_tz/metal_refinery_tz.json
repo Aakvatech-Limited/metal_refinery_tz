@@ -181,6 +181,31 @@
       "icon": "settings",
       "link_type": "DocType",
       "link_to": "Metal Refinery Settings"
+    },
+    {
+      "type": "Section Break",
+      "label": "Operational Reports"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Intake Traceability",
+      "icon": "file-chart-column",
+      "link_type": "Report",
+      "link_to": "Metal Intake Traceability"
+    },
+    {
+      "type": "Link",
+      "label": "Refining Yield and Variance",
+      "icon": "file-chart-column",
+      "link_type": "Report",
+      "link_to": "Refining Yield and Variance"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Custody and Bars",
+      "icon": "file-chart-column",
+      "link_type": "Report",
+      "link_to": "Metal Custody and Bars"
     }
   ]
 }

@@ -105,4 +105,21 @@ dash = json.loads((MODULE / "metal_refinery_tz_dashboard/metal_refinery_operatio
 assert dash["is_standard"] == 1
 assert all(x["chart"] in charts for x in dash["charts"])
 assert all(x["card"] in cards for x in dash["cards"])
+reports = {}
+for path in (MODULE / "report").glob("*/*.json"):
+    report = json.loads(path.read_text())
+    assert report["doctype"] == "Report" and report["is_standard"] == "Yes", path
+    assert report["module"] == module_name, path
+    assert report["ref_doctype"] in doctypes, path
+    stem = path.stem
+    for ext in (".py", ".js"):
+        assert path.with_suffix(ext).is_file(), (path, ext)
+    reports[report["name"]] = report
+for item in side["items"]:
+    if item.get("link_type") == "Report":
+        assert item["link_to"] in reports, item
+for item in workspace["links"]:
+    if item.get("link_type") == "Report":
+        assert item["link_to"] in reports, item
+
 print(f"OK: {len(doctypes)} DocTypes; {len(cards)} Cards; {len(charts)} Charts; all source links resolve")
