@@ -1,0 +1,113 @@
+{
+  "doctype": "DocType",
+  "name": "Toll Refining Agreement",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 0,
+  "is_submittable": 1,
+  "autoname": "format:TAGR-{YYYY}-{#####}",
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Customer",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fieldname": "valid_from",
+      "fieldtype": "Date",
+      "label": "Valid From",
+      "reqd": 1
+    },
+    {
+      "fieldname": "valid_to",
+      "fieldtype": "Date",
+      "label": "Valid Until",
+      "reqd": 1
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "reqd": 1
+    },
+    {
+      "fieldname": "rates",
+      "fieldtype": "Table",
+      "label": "Refining Rates",
+      "options": "Toll Refining Rate",
+      "reqd": 1
+    },
+    {
+      "fieldname": "terms",
+      "fieldtype": "Small Text",
+      "label": "Terms"
+    },
+    {
+      "fieldname": "external_reference",
+      "fieldtype": "Data",
+      "label": "Contract Reference"
+    }
+  ],
+  "field_order": [
+    "company",
+    "customer",
+    "valid_from",
+    "valid_to",
+    "currency",
+    "rates",
+    "terms",
+    "external_reference"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

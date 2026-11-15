@@ -1,0 +1,151 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Bar Register",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "autoname": "format:MBAR-{YYYY}-{#####}",
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "bar_id",
+      "fieldtype": "Data",
+      "label": "Bar ID",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "refining_batch",
+      "fieldtype": "Link",
+      "label": "Refining Batch",
+      "options": "Refining Batch",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "ownership",
+      "fieldtype": "Select",
+      "label": "Ownership",
+      "options": "Company Owned\nCustomer Owned",
+      "reqd": 1
+    },
+    {
+      "fieldname": "owner_customer",
+      "fieldtype": "Link",
+      "label": "Owner Customer",
+      "options": "Customer"
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Gross Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "purity_percent",
+      "fieldtype": "Percent",
+      "label": "Purity (%)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fine_weight",
+      "fieldtype": "Float",
+      "label": "Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "In Vault\nReleased"
+    },
+    {
+      "fieldname": "certificate",
+      "fieldtype": "Data",
+      "label": "Assay Certificate Reference"
+    }
+  ],
+  "field_order": [
+    "company",
+    "bar_id",
+    "refining_batch",
+    "metal_type",
+    "ownership",
+    "owner_customer",
+    "weight",
+    "purity_percent",
+    "fine_weight",
+    "uom",
+    "warehouse",
+    "status",
+    "certificate"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

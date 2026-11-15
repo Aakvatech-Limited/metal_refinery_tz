@@ -10,5 +10,9 @@ class RefiningBatch(Document):
     def on_cancel(self):
         import frappe
         from frappe import _
+        if frappe.db.exists("Metal Bar Register", {"refining_batch": self.name}):
+            frappe.throw(_("Cannot cancel a batch with registered bars"))
+        if frappe.db.exists("Toll Refining Job", {"refining_batch": self.name}):
+            frappe.throw(_("Cannot cancel a batch referenced by toll refining jobs"))
         if frappe.db.exists("Refining Batch Reconciliation", {"refining_batch": self.name, "docstatus": 1}):
             frappe.throw(_("Cancel the reconciliation before cancelling the batch"))

@@ -1,0 +1,55 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Custody Count Item",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 1,
+  "is_submittable": 0,
+  "autoname": "",
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "metal_lot",
+      "fieldtype": "Link",
+      "label": "Metal Lot",
+      "options": "Metal Lot",
+      "reqd": 1
+    },
+    {
+      "fieldname": "recorded_weight",
+      "fieldtype": "Float",
+      "label": "Recorded Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "counted_weight",
+      "fieldtype": "Float",
+      "label": "Counted Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "variance",
+      "fieldtype": "Float",
+      "label": "Variance",
+      "read_only": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "UOM",
+      "options": "UOM",
+      "reqd": 1
+    }
+  ],
+  "field_order": [
+    "metal_lot",
+    "recorded_weight",
+    "counted_weight",
+    "variance",
+    "uom"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

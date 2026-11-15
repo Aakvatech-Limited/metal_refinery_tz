@@ -1,0 +1,17 @@
+{
+  "doctype": "Dashboard Chart",
+  "name": "Toll Refining Jobs by Metal",
+  "chart_name": "Toll Refining Jobs by Metal",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_public": 1,
+  "chart_type": "Group By",
+  "document_type": "Toll Refining Job",
+  "group_by_based_on": "metal_type",
+  "group_by_type": "Count",
+  "type": "Bar",
+  "timeseries": 0,
+  "filters_json": "[]",
+  "dynamic_filters_json": "[]",
+  "number_of_groups": 10
+}

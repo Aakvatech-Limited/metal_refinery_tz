@@ -64,6 +64,10 @@ def cancel_lot(doc):
     lot = frappe.db.get_value("Metal Lot", {"intake": doc.name}, "name")
     if not lot:
         return
+    if frappe.db.exists("Metal Custody Transfer Item", {"metal_lot": lot}):
+        frappe.throw(_("Cannot cancel intake: lot has custody transfer history"))
+    if frappe.db.exists("Toll Refining Job", {"metal_intake": doc.name}):
+        frappe.throw(_("Cannot cancel intake: toll refining job references the intake"))
     if frappe.db.exists("Refining Batch Input", {"metal_lot": lot}):
         frappe.throw(_("Cannot cancel intake: lot has refining batch references"))
     if frappe.db.exists("Metal Assay", {"metal_intake": doc.name, "docstatus": 1}):

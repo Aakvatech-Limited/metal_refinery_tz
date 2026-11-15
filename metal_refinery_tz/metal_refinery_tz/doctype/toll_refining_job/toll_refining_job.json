@@ -1,0 +1,160 @@
+{
+  "doctype": "DocType",
+  "name": "Toll Refining Job",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 0,
+  "is_submittable": 1,
+  "autoname": "format:TJOB-{YYYY}-{#####}",
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Customer",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fieldname": "agreement",
+      "fieldtype": "Link",
+      "label": "Toll Refining Agreement",
+      "options": "Toll Refining Agreement",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_intake",
+      "fieldtype": "Link",
+      "label": "Customer Metal Intake",
+      "options": "Metal Intake",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "refining_batch",
+      "fieldtype": "Link",
+      "label": "Refining Batch",
+      "options": "Refining Batch",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_lot",
+      "fieldtype": "Link",
+      "label": "Metal Lot",
+      "options": "Metal Lot"
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "weight_uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "received_weight",
+      "fieldtype": "Float",
+      "label": "Received Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "rate_per_unit",
+      "fieldtype": "Currency",
+      "label": "Rate per Weight Unit",
+      "read_only": 1
+    },
+    {
+      "fieldname": "service_fee",
+      "fieldtype": "Currency",
+      "label": "Service Fee",
+      "read_only": 1
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency"
+    },
+    {
+      "fieldname": "sales_invoice",
+      "fieldtype": "Link",
+      "label": "ERPNext Sales Invoice",
+      "options": "Sales Invoice"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    }
+  ],
+  "field_order": [
+    "company",
+    "customer",
+    "agreement",
+    "metal_intake",
+    "refining_batch",
+    "metal_lot",
+    "metal_type",
+    "weight_uom",
+    "received_weight",
+    "rate_per_unit",
+    "service_fee",
+    "currency",
+    "sales_invoice",
+    "remarks"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}
