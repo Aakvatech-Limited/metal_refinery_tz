@@ -1,40 +1,32 @@
-# Delivery roadmap
+# Metal Refinery TZ delivery roadmap
 
-## Stage 0 — Foundation
-- [x] Initialize Frappe application and v16 compatibility metadata
-- [x] Create version-16 and version-16-hotfix branches
-- [x] Add Python package, module markers, icon, basic CI
-- [ ] Bench installation/migration on a live v16 test site
+## Phase 1 — Foundation
+- [x] Frappe v16 app metadata, modules, package, CI
+- [x] `version-16` and `version-16-hotfix` branches
+- [ ] Install/migrate on a live Frappe/ERPNext v16 test site
 
-## Stage 1 — Metal intake and assay (this PR)
-- [x] Metal Type, Assay Method, Refinery Settings
-- [x] Intake measurement/sample child rows and intake-to-lot provenance
-- [x] Metal Assay and detailed assay results
-- [x] Price Fixing, settlement and charges
-- [x] Controller validations and arithmetic tests
-- [ ] Site UAT for permissions and end-to-end settlement
-- [ ] ERPNext Purchase Invoice/Stock posting (requires approved ownership/accounting policy)
+## Phase 2 — Intake, assay and settlement
+- [x] Metal Intake/Measurements/Samples and Metal Lot
+- [x] Metal Assay/Results, Price Fixing and Purchase Settlement
+- [ ] ERPNext stock/financial posting based on agreed ownership and valuation rules
 
-## Stage 2 — Refining (this PR)
-- [x] Refining Batch, inputs and outputs
-- [x] Refining Operation and Batch Reconciliation
-- [x] Fine metal arithmetic, variance exception and approval
-- [ ] Integration to BOM/Work Order/Stock Entry posting
-- [ ] Multi-metal refining and lot-split traceability
-- [ ] Bench integration and posting tests
+## Phase 3 — Refining
+- [x] Refining Batch, Inputs/Outputs, Refining Operation and Reconciliation
+- [x] Mass balance and Metal Exception checks
+- [ ] Multi-metal recovery, partial lot allocations, full ERPNext production integration
 
-## Stage 3 — Custody, tolling and commerce (future)
-- [ ] Vault transfers, counts, bar register and multiple owners
-- [ ] Toll Refining Agreement/Job and fees
-- [ ] Controlled metal release and export authorization
+## Phase 4 — Vault, custody, tolling and export (this PR)
+- [x] Whole-lot Metal Custody Transfer and physical Metal Custody Count
+- [x] Metal Bar Register checked against produced fine-metal output
+- [x] Toll Refining Agreement, Rate and Toll Refining Job
+- [x] Metal Release Authorization and customer-owned export shipment documentation
+- [x] Sidebar/Workspace, Dashboard Chart, Number Cards and Dashboard updated
+- [ ] Real Frappe v16 deployment, workflow and user-role verification
+- [ ] Partial lot/metal allocation engine and customer-owned metal custody ledger
+- [ ] Automatic ERPNext invoicing/stock accounting and export integrations
 
-## Stage 4 — v16 navigation and initial analytics (included early as requested)
-- [x] Standard Dock, Sidebar, Workspace and Desktop registration
-- [x] Four initial Number Cards, two Group By charts and Operations Dashboard
-- [ ] Test imports, visibility and role-access on live dev-mode v16 site
-- [ ] Production metrics, detailed Script Reports and custom charts
-
-## Stage 5 — UAT
-- [ ] Mass-balance/precision and workflow tests on installed bench
-- [ ] Operator/manager/admin permissions and custom Dock arrangement
-- [ ] Real transaction accounting and migration checks
+## Phase 5 — Reporting and readiness
+- [x] Initial operational count cards and grouped charts
+- [ ] Detailed operational and financial reconciliation reports
+- [ ] Workflow/permission review for custody and release, two-party authenticated handover
+- [ ] Site UAT, multi-user concurrency, cancellation and regression tests

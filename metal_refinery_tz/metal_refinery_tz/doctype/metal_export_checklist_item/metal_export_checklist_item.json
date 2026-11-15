@@ -1,0 +1,46 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Export Checklist Item",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 1,
+  "is_submittable": 0,
+  "autoname": "",
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "requirement",
+      "fieldtype": "Data",
+      "label": "Requirement",
+      "reqd": 1
+    },
+    {
+      "fieldname": "evidence_reference",
+      "fieldtype": "Data",
+      "label": "Supporting Evidence",
+      "reqd": 1
+    },
+    {
+      "fieldname": "verified",
+      "fieldtype": "Check",
+      "label": "Verified",
+      "default": "0"
+    },
+    {
+      "fieldname": "verified_by",
+      "fieldtype": "Link",
+      "label": "Verified By",
+      "options": "User"
+    }
+  ],
+  "field_order": [
+    "requirement",
+    "evidence_reference",
+    "verified",
+    "verified_by"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

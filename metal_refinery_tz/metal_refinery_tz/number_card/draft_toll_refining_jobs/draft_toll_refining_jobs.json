@@ -1,0 +1,13 @@
+{
+  "doctype": "Number Card",
+  "name": "Draft Toll Refining Jobs",
+  "label": "Draft Toll Refining Jobs",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_public": 1,
+  "type": "Document Type",
+  "document_type": "Toll Refining Job",
+  "function": "Count",
+  "filters_json": "[[\"docstatus\",\"=\",0]]",
+  "dynamic_filters_json": "[]"
+}

@@ -1,0 +1,124 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Custody Count",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 0,
+  "is_submittable": 1,
+  "autoname": "format:MCNT-{YYYY}-{#####}",
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "count_date",
+      "fieldtype": "Date",
+      "label": "Count Date",
+      "reqd": 1,
+      "default": "Today"
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Warehouse",
+      "options": "Warehouse",
+      "reqd": 1
+    },
+    {
+      "fieldname": "counted_by",
+      "fieldtype": "Link",
+      "label": "Counted By",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "reviewed_by",
+      "fieldtype": "Link",
+      "label": "Reviewed By",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "tolerance",
+      "fieldtype": "Float",
+      "label": "Weight Tolerance",
+      "reqd": 1,
+      "default": "0"
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Counted Lots",
+      "options": "Metal Custody Count Item",
+      "reqd": 1
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    },
+    {
+      "fieldname": "approved_exception",
+      "fieldtype": "Link",
+      "label": "Approved Exception",
+      "options": "Metal Exception"
+    }
+  ],
+  "field_order": [
+    "company",
+    "count_date",
+    "warehouse",
+    "counted_by",
+    "reviewed_by",
+    "tolerance",
+    "items",
+    "remarks",
+    "approved_exception"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "report": 1,
+      "print": 1,
+      "export": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

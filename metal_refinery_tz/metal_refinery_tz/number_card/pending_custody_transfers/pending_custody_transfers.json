@@ -1,0 +1,13 @@
+{
+  "doctype": "Number Card",
+  "name": "Pending Custody Transfers",
+  "label": "Pending Custody Transfers",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_public": 1,
+  "type": "Document Type",
+  "document_type": "Metal Custody Transfer",
+  "function": "Count",
+  "filters_json": "[[\"docstatus\",\"=\",0]]",
+  "dynamic_filters_json": "[]"
+}

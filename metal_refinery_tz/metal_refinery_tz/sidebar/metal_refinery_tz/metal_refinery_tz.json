@@ -98,6 +98,67 @@
     },
     {
       "type": "Section Break",
+      "label": "Vault & Custody"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Custody Transfer",
+      "icon": "arrow-left-right",
+      "link_type": "DocType",
+      "link_to": "Metal Custody Transfer"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Custody Count",
+      "icon": "clipboard-check",
+      "link_type": "DocType",
+      "link_to": "Metal Custody Count"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Bar Register",
+      "icon": "gem",
+      "link_type": "DocType",
+      "link_to": "Metal Bar Register"
+    },
+    {
+      "type": "Section Break",
+      "label": "Toll Refining"
+    },
+    {
+      "type": "Link",
+      "label": "Toll Refining Agreement",
+      "icon": "handshake",
+      "link_type": "DocType",
+      "link_to": "Toll Refining Agreement"
+    },
+    {
+      "type": "Link",
+      "label": "Toll Refining Job",
+      "icon": "factory",
+      "link_type": "DocType",
+      "link_to": "Toll Refining Job"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Release Authorization",
+      "icon": "shield-check",
+      "link_type": "DocType",
+      "link_to": "Metal Release Authorization"
+    },
+    {
+      "type": "Section Break",
+      "label": "Sales & Export"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Export Shipment",
+      "icon": "ship",
+      "link_type": "DocType",
+      "link_to": "Metal Export Shipment"
+    },
+    {
+      "type": "Section Break",
       "label": "Reference Masters"
     },
     {

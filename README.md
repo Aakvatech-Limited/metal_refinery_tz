@@ -1,18 +1,14 @@
 # Metal Refinery TZ
 
-ERPNext/Frappe v16 companion app for precious-metal intake, assay, settlement, production batches and reconciliation.
+Frappe/ERPNext v16 companion application for operational traceability in precious-metal refineries.
 
-## Features in the feature PR
-- Metal Intake with measured weights, customer/company ownership and automatic provenance lot
-- Metal Assay with sample-linked purity tests and superseding retest support
-- Price Fixing and proposed Purchase Settlement calculations
-- Refining Batch inputs, outputs, operations, fine-weight balance, and reconciliation
-- Metal Exception review with separation of exception creator and approver
-- Native v16 app Desktop entry, Dock, Sidebar, Workspace, four count Number Cards, two Group By Dashboard Charts and Operations Dashboard
+## Functional coverage
+Metal Intake, Assay and Price Fixing; Purchase Settlement; Refining Batch and fine-metal reconciliation; Vault Custody Transfer and Count; Metal Bar Register; Toll Refining Agreement and Job; controlled Metal Release Authorization; and Metal Export Shipment with evidence checklist.
 
-**Safety:** No automatic Purchase Invoice, Stock Entry, GL or journal postings are implemented. This is not a production-ready metal stock/accounting system until site UAT and posting policy confirmation.
+Navigation includes the app Desktop entry, standard Dock, Sidebar, Workspace, initial Number Cards, Dashboard Charts and Operations Dashboard.
 
 ## Installation
+
 ```sh
 bench get-app --branch version-16-hotfix https://github.com/Aakvatech-Limited/metal_refinery_tz.git
 bench --site YOUR_SITE install-app metal_refinery_tz
@@ -20,14 +16,15 @@ bench --site YOUR_SITE migrate
 bench --site YOUR_SITE clear-cache
 ```
 
-The feature PR must be merged before these commands include new Phase 2/3 features.
+For an existing installation, pull the latest app code before migrating. Phase 4 features appear on `version-16-hotfix` only **after the Phase 4 PR is merged**.
 
-## Development and checks
-```sh
-python -m compileall -q metal_refinery_tz
-bench --site YOUR_SITE run-tests --app metal_refinery_tz
-```
+## Safety / not yet ready for production
+- No automated ERPNext inventory or accounting postings, invoices, payments or customs-system submissions.
+- Whole-lot custody transfers and single-customer-intake toll processing only.
+- Bar registration and release are informational custody controls, not an accounting/stock ledger.
+- Export requirement checklist is configurable evidence, not a claim of statutory approval.
+- Real installation, unit and user-role integration tests remain to be completed.
 
-See [architecture](docs/architecture.md), [roadmap](docs/roadmap.md), and [Phase 2/3 implementation notes](docs/phase2-phase3-implementation.md).
+See [Stage 4 guide](docs/stage4-custody-tolling-export.md) and [Roadmap](docs/roadmap.md).
 
-Package: `metal_refinery_tz`. Target: Frappe/ERPNext v16. Branches: `version-16-hotfix` for staging, `version-16` for production merges.
+Application version: `16.1.0`.

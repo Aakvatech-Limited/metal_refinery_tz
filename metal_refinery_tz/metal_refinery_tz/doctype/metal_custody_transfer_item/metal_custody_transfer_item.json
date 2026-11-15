@@ -1,0 +1,41 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Custody Transfer Item",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 1,
+  "is_submittable": 0,
+  "autoname": "",
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "metal_lot",
+      "fieldtype": "Link",
+      "label": "Metal Lot",
+      "options": "Metal Lot",
+      "reqd": 1
+    },
+    {
+      "fieldname": "weight",
+      "fieldtype": "Float",
+      "label": "Transfer Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    }
+  ],
+  "field_order": [
+    "metal_lot",
+    "weight",
+    "uom"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}
