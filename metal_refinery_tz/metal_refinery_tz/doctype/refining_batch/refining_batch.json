@@ -88,6 +88,13 @@
       "options": "BOM"
     },
     {
+      "fieldname": "stock_entry",
+      "fieldtype": "Link",
+      "options": "Stock Entry",
+      "label": "Generated WIP Transfer (Draft)",
+      "read_only": 1
+    },
+    {
       "fieldname": "section_layout_03",
       "fieldtype": "Section Break",
       "label": "Input Lots"
@@ -109,6 +116,17 @@
       "fieldtype": "Table",
       "label": "Metal Outputs",
       "options": "Refining Batch Output"
+    },
+    {
+      "fieldname": "section_operation_costs",
+      "fieldtype": "Section Break",
+      "label": "Refining Operating Costs"
+    },
+    {
+      "fieldname": "operating_costs",
+      "fieldtype": "Table",
+      "label": "Operating Cost Lines",
+      "options": "Metal Operation Cost"
     },
     {
       "fieldname": "section_layout_05",
@@ -166,10 +184,13 @@
     "work_order",
     "column_layout_2_2",
     "bom",
+    "stock_entry",
     "section_layout_03",
     "inputs",
     "section_layout_04",
     "outputs",
+    "section_operation_costs",
+    "operating_costs",
     "section_layout_05",
     "input_fine_weight",
     "column_layout_5_2",
