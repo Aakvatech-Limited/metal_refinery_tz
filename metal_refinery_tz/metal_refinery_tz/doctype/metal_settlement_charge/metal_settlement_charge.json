@@ -1,0 +1,36 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Settlement Charge",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 1,
+  "issingle": 0,
+  "autoname": "",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Charge / Deduction",
+      "reqd": 1,
+      "description": "Positive is a deduction; negative adds to payable"
+    }
+  ],
+  "field_order": [
+    "description",
+    "amount"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

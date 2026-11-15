@@ -1,0 +1,82 @@
+{
+  "doctype": "DocType",
+  "name": "Assay Method",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 0,
+  "issingle": 0,
+  "autoname": "field:method_name",
+  "title_field": "method_name",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "method_name",
+      "fieldtype": "Data",
+      "label": "Method Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Method Notes"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": "1"
+    }
+  ],
+  "field_order": [
+    "method_name",
+    "notes",
+    "is_active"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

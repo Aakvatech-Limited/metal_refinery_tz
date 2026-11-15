@@ -1,0 +1,14 @@
+{
+  "doctype": "Dock",
+  "name": "metal_refinery_tz",
+  "app": "metal_refinery_tz",
+  "standard": 1,
+  "items": [
+    {
+      "link_type": "Sidebar",
+      "link_to": "Metal Refinery TZ",
+      "title": "Metal Refinery TZ",
+      "icon": "factory"
+    }
+  ]
+}

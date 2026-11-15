@@ -1,0 +1,167 @@
+{
+  "doctype": "DocType",
+  "name": "Refining Batch",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 1,
+  "istable": 0,
+  "issingle": 0,
+  "autoname": "format:RBAT-{YYYY}-{#####}",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "batch_date",
+      "fieldtype": "Date",
+      "label": "Batch Date",
+      "reqd": 1,
+      "default": "Today"
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Primary Metal",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "ownership",
+      "fieldtype": "Select",
+      "label": "Ownership",
+      "options": "Company Owned\nCustomer Owned",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Processing Status",
+      "options": "Draft\nIn Process\nAwaiting Reconciliation\nClosed",
+      "default": "Draft",
+      "read_only": 1
+    },
+    {
+      "fieldname": "work_order",
+      "fieldtype": "Link",
+      "label": "ERPNext Work Order",
+      "options": "Work Order"
+    },
+    {
+      "fieldname": "bom",
+      "fieldtype": "Link",
+      "label": "ERPNext BOM",
+      "options": "BOM"
+    },
+    {
+      "fieldname": "inputs",
+      "fieldtype": "Table",
+      "label": "Metal Inputs",
+      "options": "Refining Batch Input",
+      "reqd": 1
+    },
+    {
+      "fieldname": "outputs",
+      "fieldtype": "Table",
+      "label": "Metal Outputs",
+      "options": "Refining Batch Output"
+    },
+    {
+      "fieldname": "input_fine_weight",
+      "fieldtype": "Float",
+      "label": "Total Input Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "output_fine_weight",
+      "fieldtype": "Float",
+      "label": "Total Accounted Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "unaccounted_fine_weight",
+      "fieldtype": "Float",
+      "label": "Unaccounted Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "weight_uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "field_order": [
+    "company",
+    "batch_date",
+    "metal_type",
+    "ownership",
+    "status",
+    "work_order",
+    "bom",
+    "inputs",
+    "outputs",
+    "input_fine_weight",
+    "output_fine_weight",
+    "unaccounted_fine_weight",
+    "weight_uom",
+    "notes"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

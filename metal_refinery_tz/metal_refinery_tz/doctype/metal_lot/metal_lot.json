@@ -1,0 +1,146 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Lot",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 0,
+  "issingle": 0,
+  "autoname": "format:MLOT-{YYYY}-{#####}",
+  "title_field": "metal_type",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "intake",
+      "fieldtype": "Link",
+      "label": "Metal Intake",
+      "options": "Metal Intake",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "ownership",
+      "fieldtype": "Select",
+      "label": "Ownership",
+      "options": "Company Owned\nCustomer Owned",
+      "reqd": 1
+    },
+    {
+      "fieldname": "owner_party_type",
+      "fieldtype": "Select",
+      "label": "Owner Party Type",
+      "options": "Supplier\nCustomer"
+    },
+    {
+      "fieldname": "owner_party",
+      "fieldtype": "Dynamic Link",
+      "label": "Owner Party",
+      "options": "owner_party_type"
+    },
+    {
+      "fieldname": "initial_weight",
+      "fieldtype": "Float",
+      "label": "Initial Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Lot Status",
+      "options": "Available\nIn Process\nClosed",
+      "default": "Available",
+      "read_only": 1
+    },
+    {
+      "fieldname": "warehouse",
+      "fieldtype": "Link",
+      "label": "Custody Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "field_order": [
+    "intake",
+    "company",
+    "metal_type",
+    "ownership",
+    "owner_party_type",
+    "owner_party",
+    "initial_weight",
+    "uom",
+    "status",
+    "warehouse",
+    "notes"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

@@ -1,0 +1,74 @@
+{
+  "doctype": "DocType",
+  "name": "Refining Batch Input",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 1,
+  "issingle": 0,
+  "autoname": "",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "metal_lot",
+      "fieldtype": "Link",
+      "label": "Metal Lot",
+      "options": "Metal Lot",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1
+    },
+    {
+      "fieldname": "ownership",
+      "fieldtype": "Select",
+      "label": "Ownership",
+      "options": "Company Owned\nCustomer Owned",
+      "reqd": 1
+    },
+    {
+      "fieldname": "input_weight",
+      "fieldtype": "Float",
+      "label": "Input Weight",
+      "reqd": 1
+    },
+    {
+      "fieldname": "purity_percent",
+      "fieldtype": "Percent",
+      "label": "Purity (%)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fine_weight",
+      "fieldtype": "Float",
+      "label": "Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    }
+  ],
+  "field_order": [
+    "metal_lot",
+    "metal_type",
+    "ownership",
+    "input_weight",
+    "purity_percent",
+    "fine_weight",
+    "uom"
+  ],
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

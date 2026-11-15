@@ -1,0 +1,17 @@
+{
+  "doctype": "Dashboard Chart",
+  "name": "Refining Batches by Status",
+  "chart_name": "Refining Batches by Status",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_public": 1,
+  "chart_type": "Group By",
+  "document_type": "Refining Batch",
+  "group_by_based_on": "status",
+  "group_by_type": "Count",
+  "type": "Bar",
+  "timeseries": 0,
+  "filters_json": "[]",
+  "dynamic_filters_json": "[]",
+  "number_of_groups": 10
+}

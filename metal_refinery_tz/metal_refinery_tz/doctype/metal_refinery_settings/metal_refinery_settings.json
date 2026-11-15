@@ -1,0 +1,102 @@
+{
+  "doctype": "DocType",
+  "name": "Metal Refinery Settings",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 0,
+  "issingle": 1,
+  "autoname": "",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "default_weight_uom",
+      "fieldtype": "Link",
+      "label": "Default Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "fine_weight_precision",
+      "fieldtype": "Int",
+      "label": "Fine Weight Precision",
+      "default": "6",
+      "description": "Maximum precision used in computed quantity fields"
+    },
+    {
+      "fieldname": "default_loss_tolerance",
+      "fieldtype": "Float",
+      "label": "Default Loss Tolerance (weight units)",
+      "default": "0"
+    },
+    {
+      "fieldname": "enforce_separate_ownership",
+      "fieldtype": "Check",
+      "label": "Track Ownership Separately",
+      "default": "1",
+      "read_only": 1
+    },
+    {
+      "fieldname": "allow_erpnext_auto_posting",
+      "fieldtype": "Check",
+      "label": "Enable Automatic ERPNext Posting",
+      "default": "0",
+      "read_only": 1,
+      "description": "Reserved: no posting integration is implemented"
+    }
+  ],
+  "field_order": [
+    "default_weight_uom",
+    "fine_weight_precision",
+    "default_loss_tolerance",
+    "enforce_separate_ownership",
+    "allow_erpnext_auto_posting"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}

@@ -1,0 +1,117 @@
+{
+  "doctype": "DocType",
+  "name": "Refining Operation",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "is_submittable": 1,
+  "istable": 0,
+  "issingle": 0,
+  "autoname": "format:ROPN-{YYYY}-{#####}",
+  "title_field": "",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "refining_batch",
+      "fieldtype": "Link",
+      "label": "Refining Batch",
+      "options": "Refining Batch",
+      "reqd": 1
+    },
+    {
+      "fieldname": "operation_name",
+      "fieldtype": "Data",
+      "label": "Operation Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "start_time",
+      "fieldtype": "Datetime",
+      "label": "Start Time",
+      "reqd": 1
+    },
+    {
+      "fieldname": "end_time",
+      "fieldtype": "Datetime",
+      "label": "End Time"
+    },
+    {
+      "fieldname": "operator",
+      "fieldtype": "Link",
+      "label": "Operator",
+      "options": "User"
+    },
+    {
+      "fieldname": "work_order",
+      "fieldtype": "Link",
+      "label": "Work Order",
+      "options": "Work Order"
+    },
+    {
+      "fieldname": "job_card",
+      "fieldtype": "Link",
+      "label": "Job Card",
+      "options": "Job Card"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "field_order": [
+    "refining_batch",
+    "operation_name",
+    "start_time",
+    "end_time",
+    "operator",
+    "work_order",
+    "job_card",
+    "notes"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 1,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock User",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0,
+      "report": 1,
+      "print": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1,
+  "editable_grid": 1
+}
