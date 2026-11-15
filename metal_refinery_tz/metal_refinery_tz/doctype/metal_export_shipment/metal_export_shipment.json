@@ -10,6 +10,11 @@
   "track_changes": 1,
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Export Overview"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -22,6 +27,10 @@
       "label": "Customer",
       "options": "Customer",
       "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "release_authorization",
@@ -38,11 +47,26 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "destination_country",
       "fieldtype": "Link",
       "label": "Destination Country",
       "options": "Country",
       "reqd": 1
+    },
+    {
+      "fieldname": "shipping_reference",
+      "fieldtype": "Data",
+      "label": "Shipment Reference",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "ERPNext References"
     },
     {
       "fieldname": "delivery_note",
@@ -51,16 +75,19 @@
       "options": "Delivery Note"
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "sales_invoice",
       "fieldtype": "Link",
       "label": "ERPNext Sales Invoice",
       "options": "Sales Invoice"
     },
     {
-      "fieldname": "shipping_reference",
-      "fieldtype": "Data",
-      "label": "Shipment Reference",
-      "reqd": 1
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Compliance Evidence"
     },
     {
       "fieldname": "checklist",
@@ -70,21 +97,33 @@
       "reqd": 1
     },
     {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
+    },
+    {
       "fieldname": "remarks",
       "fieldtype": "Small Text",
       "label": "Remarks"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "customer",
+    "column_layout_1_2",
     "release_authorization",
     "export_date",
+    "column_layout_1_3",
     "destination_country",
-    "delivery_note",
-    "sales_invoice",
     "shipping_reference",
+    "section_layout_02",
+    "delivery_note",
+    "column_layout_2_2",
+    "sales_invoice",
+    "section_layout_03",
     "checklist",
+    "section_layout_04",
     "remarks"
   ],
   "permissions": [

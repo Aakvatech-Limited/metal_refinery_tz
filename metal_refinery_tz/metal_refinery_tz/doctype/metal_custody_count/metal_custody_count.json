@@ -10,18 +10,16 @@
   "track_changes": 1,
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Count Details"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
       "options": "Company",
       "reqd": 1
-    },
-    {
-      "fieldname": "count_date",
-      "fieldtype": "Date",
-      "label": "Count Date",
-      "reqd": 1,
-      "default": "Today"
     },
     {
       "fieldname": "warehouse",
@@ -31,18 +29,15 @@
       "reqd": 1
     },
     {
-      "fieldname": "counted_by",
-      "fieldtype": "Link",
-      "label": "Counted By",
-      "options": "User",
-      "reqd": 1
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
-      "fieldname": "reviewed_by",
-      "fieldtype": "Link",
-      "label": "Reviewed By",
-      "options": "User",
-      "reqd": 1
+      "fieldname": "count_date",
+      "fieldtype": "Date",
+      "label": "Count Date",
+      "reqd": 1,
+      "default": "Today"
     },
     {
       "fieldname": "tolerance",
@@ -52,6 +47,40 @@
       "default": "0"
     },
     {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Counting & Review"
+    },
+    {
+      "fieldname": "counted_by",
+      "fieldtype": "Link",
+      "label": "Counted By",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "reviewed_by",
+      "fieldtype": "Link",
+      "label": "Reviewed By",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "approved_exception",
+      "fieldtype": "Link",
+      "label": "Approved Exception",
+      "options": "Metal Exception"
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Counted Metal Lots"
+    },
+    {
       "fieldname": "items",
       "fieldtype": "Table",
       "label": "Counted Lots",
@@ -59,27 +88,32 @@
       "reqd": 1
     },
     {
-      "fieldname": "remarks",
-      "fieldtype": "Small Text",
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
       "label": "Remarks"
     },
     {
-      "fieldname": "approved_exception",
-      "fieldtype": "Link",
-      "label": "Approved Exception",
-      "options": "Metal Exception"
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
-    "count_date",
     "warehouse",
-    "counted_by",
-    "reviewed_by",
+    "column_layout_1_2",
+    "count_date",
     "tolerance",
+    "section_layout_02",
+    "counted_by",
+    "column_layout_2_2",
+    "reviewed_by",
+    "approved_exception",
+    "section_layout_03",
     "items",
-    "remarks",
-    "approved_exception"
+    "section_layout_04",
+    "remarks"
   ],
   "permissions": [
     {

@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Operation Details"
+    },
+    {
       "fieldname": "refining_batch",
       "fieldtype": "Link",
       "label": "Refining Batch",
@@ -24,15 +29,8 @@
       "reqd": 1
     },
     {
-      "fieldname": "start_time",
-      "fieldtype": "Datetime",
-      "label": "Start Time",
-      "reqd": 1
-    },
-    {
-      "fieldname": "end_time",
-      "fieldtype": "Datetime",
-      "label": "End Time"
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "operator",
@@ -41,10 +39,39 @@
       "options": "User"
     },
     {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Processing Timeline"
+    },
+    {
+      "fieldname": "start_time",
+      "fieldtype": "Datetime",
+      "label": "Start Time",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "end_time",
+      "fieldtype": "Datetime",
+      "label": "End Time"
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "ERPNext Manufacturing Links"
+    },
+    {
       "fieldname": "work_order",
       "fieldtype": "Link",
       "label": "Work Order",
       "options": "Work Order"
+    },
+    {
+      "fieldname": "column_layout_3_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "job_card",
@@ -53,19 +80,31 @@
       "options": "Job Card"
     },
     {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
       "fieldname": "notes",
       "fieldtype": "Small Text",
       "label": "Notes"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "refining_batch",
     "operation_name",
-    "start_time",
-    "end_time",
+    "column_layout_1_2",
     "operator",
+    "section_layout_02",
+    "start_time",
+    "column_layout_2_2",
+    "end_time",
+    "section_layout_03",
     "work_order",
+    "column_layout_3_2",
     "job_card",
+    "section_layout_04",
     "notes"
   ],
   "permissions": [

@@ -38,6 +38,38 @@ for path in (MODULE / "doctype").glob("*/*.json"):
     assert expected_class in declared_classes, (
         f"Controller {controller} does not define {expected_class}"
     )
+    # Layout contract: an ordinary DocType is organized into <= 3 columns per section.
+    # Child-table list columns must be explicit and fit within Frappe's 10-unit grid.
+    if data.get("istable"):
+        visible = [f for f in data["fields"] if f.get("in_list_view")]
+        assert 2 <= len(visible) <= 5, (path, "Expected 2-5 visible grid fields")
+        assert sum(int(f.get("columns") or 2) for f in visible) <= 10, (
+            path, "Child grid exceeds 10 width units"
+        )
+        assert all(not f.get("hidden") for f in visible), (path, "Hidden grid field")
+    else:
+        assert data["fields"] and data["fields"][0]["fieldtype"] == "Section Break", (
+            path, "Parent form must start with a section"
+        )
+        columns = 0
+        section_fields = []
+        for f in data["fields"]:
+            if f["fieldtype"] == "Section Break":
+                if section_fields:
+                    tables = [x for x in section_fields if x["fieldtype"] == "Table"]
+                    assert not tables or len(section_fields) == 1, (
+                        path, "Child table must occupy its own full-width section"
+                    )
+                section_fields = []
+                columns = 1
+                assert f.get("label"), (path, "Section needs a heading")
+            elif f["fieldtype"] == "Column Break":
+                columns += 1
+                assert columns <= 3, (path, "More than three columns in section")
+            else:
+                section_fields.append(f)
+        tables = [x for x in section_fields if x["fieldtype"] == "Table"]
+        assert not tables or len(section_fields) == 1, (path, "Child table needs its own section")
     doctypes[data["name"]] = data
 
 known = {

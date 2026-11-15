@@ -10,6 +10,11 @@
   "track_changes": 1,
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Tolling Engagement"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -22,6 +27,10 @@
       "label": "Customer",
       "options": "Customer",
       "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "agreement",
@@ -39,6 +48,10 @@
       "unique": 1
     },
     {
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "refining_batch",
       "fieldtype": "Link",
       "label": "Refining Batch",
@@ -50,6 +63,11 @@
       "fieldtype": "Link",
       "label": "Metal Lot",
       "options": "Metal Lot"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Metal & Received Quantity"
     },
     {
       "fieldname": "metal_type",
@@ -66,21 +84,24 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "received_weight",
       "fieldtype": "Float",
       "label": "Received Weight",
       "read_only": 1
     },
     {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Service Charges"
+    },
+    {
       "fieldname": "rate_per_unit",
       "fieldtype": "Currency",
       "label": "Rate per Weight Unit",
-      "read_only": 1
-    },
-    {
-      "fieldname": "service_fee",
-      "fieldtype": "Currency",
-      "label": "Service Fee",
       "read_only": 1
     },
     {
@@ -90,10 +111,25 @@
       "options": "Currency"
     },
     {
+      "fieldname": "column_layout_3_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "service_fee",
+      "fieldtype": "Currency",
+      "label": "Service Fee",
+      "read_only": 1
+    },
+    {
       "fieldname": "sales_invoice",
       "fieldtype": "Link",
       "label": "ERPNext Sales Invoice",
       "options": "Sales Invoice"
+    },
+    {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
     },
     {
       "fieldname": "remarks",
@@ -102,19 +138,27 @@
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "customer",
+    "column_layout_1_2",
     "agreement",
     "metal_intake",
+    "column_layout_1_3",
     "refining_batch",
     "metal_lot",
+    "section_layout_02",
     "metal_type",
     "weight_uom",
+    "column_layout_2_2",
     "received_weight",
+    "section_layout_03",
     "rate_per_unit",
-    "service_fee",
     "currency",
+    "column_layout_3_2",
+    "service_fee",
     "sales_invoice",
+    "section_layout_04",
     "remarks"
   ],
   "permissions": [

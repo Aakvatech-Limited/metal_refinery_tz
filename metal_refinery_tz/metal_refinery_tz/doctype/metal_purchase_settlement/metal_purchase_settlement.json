@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Settlement References"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -24,6 +29,10 @@
       "options": "Metal Intake",
       "reqd": 1,
       "unique": 1
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "assay",
@@ -40,6 +49,10 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "price_fixing",
       "fieldtype": "Link",
       "label": "Price Fixing",
@@ -54,10 +67,19 @@
       "reqd": 1
     },
     {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Metal Content & Pricing"
+    },
+    {
       "fieldname": "fine_weight",
       "fieldtype": "Float",
       "label": "Fine Weight",
       "read_only": 1
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "rate_per_fine_unit",
@@ -74,10 +96,20 @@
       "read_only": 1
     },
     {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Deductions & Charges"
+    },
+    {
       "fieldname": "charges",
       "fieldtype": "Table",
       "label": "Charges and Deductions",
       "options": "Metal Settlement Charge"
+    },
+    {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Final Settlement"
     },
     {
       "fieldname": "total_deductions",
@@ -85,6 +117,10 @@
       "label": "Total Deductions",
       "options": "currency",
       "read_only": 1
+    },
+    {
+      "fieldname": "column_layout_4_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "net_amount",
@@ -101,25 +137,39 @@
       "read_only": 1
     },
     {
+      "fieldname": "section_layout_05",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
+    },
+    {
       "fieldname": "remarks",
       "fieldtype": "Small Text",
       "label": "Remarks"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "metal_intake",
+    "column_layout_1_2",
     "assay",
     "metal_type",
+    "column_layout_1_3",
     "price_fixing",
     "currency",
+    "section_layout_02",
     "fine_weight",
+    "column_layout_2_2",
     "rate_per_fine_unit",
     "gross_amount",
+    "section_layout_03",
     "charges",
+    "section_layout_04",
     "total_deductions",
+    "column_layout_4_2",
     "net_amount",
     "purchase_invoice",
+    "section_layout_05",
     "remarks"
   ],
   "permissions": [

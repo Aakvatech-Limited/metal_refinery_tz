@@ -10,6 +10,11 @@
   "track_changes": 1,
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Release Details"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -22,6 +27,10 @@
       "label": "Customer",
       "options": "Customer",
       "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "toll_refining_job",
@@ -38,11 +47,20 @@
       "default": "Today"
     },
     {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Handover & Authorization"
+    },
+    {
       "fieldname": "authorized_by",
       "fieldtype": "Link",
       "label": "Authorized By",
       "options": "User",
       "reqd": 1
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "released_by",
@@ -52,11 +70,20 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_2_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "received_by",
       "fieldtype": "Link",
       "label": "Received By",
       "options": "User",
       "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Bars Authorized for Release"
     },
     {
       "fieldname": "bars",
@@ -66,20 +93,32 @@
       "reqd": 1
     },
     {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
+    },
+    {
       "fieldname": "remarks",
       "fieldtype": "Small Text",
       "label": "Remarks"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "customer",
+    "column_layout_1_2",
     "toll_refining_job",
     "release_date",
+    "section_layout_02",
     "authorized_by",
+    "column_layout_2_2",
     "released_by",
+    "column_layout_2_3",
     "received_by",
+    "section_layout_03",
     "bars",
+    "section_layout_04",
     "remarks"
   ],
   "permissions": [

@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Batch Reconciliation"
+    },
+    {
       "fieldname": "refining_batch",
       "fieldtype": "Link",
       "label": "Refining Batch",
@@ -26,11 +31,27 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "metal_type",
       "fieldtype": "Link",
       "label": "Metal Type",
       "options": "Metal Type",
       "reqd": 1
+    },
+    {
+      "fieldname": "reconciliation_date",
+      "fieldtype": "Date",
+      "label": "Reconciliation Date",
+      "reqd": 1,
+      "default": "Today"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Metal Balance"
     },
     {
       "fieldname": "input_fine_weight",
@@ -39,16 +60,29 @@
       "read_only": 1
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "accounted_fine_weight",
       "fieldtype": "Float",
       "label": "Accounted Fine Weight",
       "read_only": 1
     },
     {
+      "fieldname": "column_layout_2_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "variance_fine_weight",
       "fieldtype": "Float",
       "label": "Variance Fine Weight",
       "read_only": 1
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Variance Review"
     },
     {
       "fieldname": "tolerance",
@@ -62,30 +96,34 @@
       "label": "Variance Reason"
     },
     {
+      "fieldname": "column_layout_3_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "approved_exception",
       "fieldtype": "Link",
       "label": "Approved Exception",
       "options": "Metal Exception"
-    },
-    {
-      "fieldname": "reconciliation_date",
-      "fieldtype": "Date",
-      "label": "Reconciliation Date",
-      "reqd": 1,
-      "default": "Today"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "refining_batch",
     "company",
+    "column_layout_1_2",
     "metal_type",
+    "reconciliation_date",
+    "section_layout_02",
     "input_fine_weight",
+    "column_layout_2_2",
     "accounted_fine_weight",
+    "column_layout_2_3",
     "variance_fine_weight",
+    "section_layout_03",
     "tolerance",
     "variance_reason",
-    "approved_exception",
-    "reconciliation_date"
+    "column_layout_3_2",
+    "approved_exception"
   ],
   "permissions": [
     {

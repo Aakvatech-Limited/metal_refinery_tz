@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Price Fixing"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -25,30 +30,13 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "price_datetime",
       "fieldtype": "Datetime",
       "label": "Fixing Date / Time",
-      "reqd": 1
-    },
-    {
-      "fieldname": "currency",
-      "fieldtype": "Link",
-      "label": "Currency",
-      "options": "Currency",
-      "reqd": 1
-    },
-    {
-      "fieldname": "rate_per_fine_unit",
-      "fieldtype": "Currency",
-      "label": "Rate Per Fine Weight Unit",
-      "reqd": 1,
-      "options": "currency"
-    },
-    {
-      "fieldname": "weight_uom",
-      "fieldtype": "Link",
-      "label": "Weight UOM",
-      "options": "UOM",
       "reqd": 1
     },
     {
@@ -58,9 +46,48 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "reference_id",
       "fieldtype": "Data",
       "label": "Reference ID"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Rate & Currency"
+    },
+    {
+      "fieldname": "rate_per_fine_unit",
+      "fieldtype": "Currency",
+      "label": "Rate Per Fine Weight Unit",
+      "reqd": 1,
+      "options": "currency"
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "reqd": 1
+    },
+    {
+      "fieldname": "weight_uom",
+      "fieldtype": "Link",
+      "label": "Weight UOM",
+      "options": "UOM",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Notes"
     },
     {
       "fieldname": "notes",
@@ -69,14 +96,20 @@
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "metal_type",
+    "column_layout_1_2",
     "price_datetime",
-    "currency",
-    "rate_per_fine_unit",
-    "weight_uom",
     "reference_source",
+    "column_layout_1_3",
     "reference_id",
+    "section_layout_02",
+    "rate_per_fine_unit",
+    "column_layout_2_2",
+    "currency",
+    "weight_uom",
+    "section_layout_03",
     "notes"
   ],
   "permissions": [

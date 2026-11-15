@@ -11,6 +11,11 @@
   "engine": "InnoDB",
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Batch Identification"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -23,6 +28,10 @@
       "label": "Batch Date",
       "reqd": 1,
       "default": "Today"
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "metal_type",
@@ -39,55 +48,8 @@
       "reqd": 1
     },
     {
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "label": "Processing Status",
-      "options": "Draft\nIn Process\nAwaiting Reconciliation\nClosed",
-      "default": "Draft",
-      "read_only": 1
-    },
-    {
-      "fieldname": "work_order",
-      "fieldtype": "Link",
-      "label": "ERPNext Work Order",
-      "options": "Work Order"
-    },
-    {
-      "fieldname": "bom",
-      "fieldtype": "Link",
-      "label": "ERPNext BOM",
-      "options": "BOM"
-    },
-    {
-      "fieldname": "inputs",
-      "fieldtype": "Table",
-      "label": "Metal Inputs",
-      "options": "Refining Batch Input",
-      "reqd": 1
-    },
-    {
-      "fieldname": "outputs",
-      "fieldtype": "Table",
-      "label": "Metal Outputs",
-      "options": "Refining Batch Output"
-    },
-    {
-      "fieldname": "input_fine_weight",
-      "fieldtype": "Float",
-      "label": "Total Input Fine Weight",
-      "read_only": 1
-    },
-    {
-      "fieldname": "output_fine_weight",
-      "fieldtype": "Float",
-      "label": "Total Accounted Fine Weight",
-      "read_only": 1
-    },
-    {
-      "fieldname": "unaccounted_fine_weight",
-      "fieldtype": "Float",
-      "label": "Unaccounted Fine Weight",
-      "read_only": 1
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "weight_uom",
@@ -97,25 +59,124 @@
       "reqd": 1
     },
     {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Processing Status",
+      "options": "Draft\nIn Process\nAwaiting Reconciliation\nClosed",
+      "default": "Draft",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Manufacturing References"
+    },
+    {
+      "fieldname": "work_order",
+      "fieldtype": "Link",
+      "label": "ERPNext Work Order",
+      "options": "Work Order"
+    },
+    {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "bom",
+      "fieldtype": "Link",
+      "label": "ERPNext BOM",
+      "options": "BOM"
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Input Lots"
+    },
+    {
+      "fieldname": "inputs",
+      "fieldtype": "Table",
+      "label": "Metal Inputs",
+      "options": "Refining Batch Input",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Recovered Metal, Residue & Loss"
+    },
+    {
+      "fieldname": "outputs",
+      "fieldtype": "Table",
+      "label": "Metal Outputs",
+      "options": "Refining Batch Output"
+    },
+    {
+      "fieldname": "section_layout_05",
+      "fieldtype": "Section Break",
+      "label": "Fine Metal Reconciliation"
+    },
+    {
+      "fieldname": "input_fine_weight",
+      "fieldtype": "Float",
+      "label": "Total Input Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_layout_5_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "output_fine_weight",
+      "fieldtype": "Float",
+      "label": "Total Accounted Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_layout_5_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "unaccounted_fine_weight",
+      "fieldtype": "Float",
+      "label": "Unaccounted Fine Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_layout_06",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
       "fieldname": "notes",
       "fieldtype": "Small Text",
       "label": "Notes"
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "batch_date",
+    "column_layout_1_2",
     "metal_type",
     "ownership",
-    "status",
-    "work_order",
-    "bom",
-    "inputs",
-    "outputs",
-    "input_fine_weight",
-    "output_fine_weight",
-    "unaccounted_fine_weight",
+    "column_layout_1_3",
     "weight_uom",
+    "status",
+    "section_layout_02",
+    "work_order",
+    "column_layout_2_2",
+    "bom",
+    "section_layout_03",
+    "inputs",
+    "section_layout_04",
+    "outputs",
+    "section_layout_05",
+    "input_fine_weight",
+    "column_layout_5_2",
+    "output_fine_weight",
+    "column_layout_5_3",
+    "unaccounted_fine_weight",
+    "section_layout_06",
     "notes"
   ],
   "permissions": [

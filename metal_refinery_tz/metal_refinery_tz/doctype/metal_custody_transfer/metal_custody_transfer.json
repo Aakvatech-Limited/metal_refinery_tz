@@ -10,6 +10,11 @@
   "track_changes": 1,
   "fields": [
     {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Transfer Details"
+    },
+    {
       "fieldname": "company",
       "fieldtype": "Link",
       "label": "Company",
@@ -22,6 +27,10 @@
       "label": "Transfer Date",
       "reqd": 1,
       "default": "Today"
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
     },
     {
       "fieldname": "source_warehouse",
@@ -38,11 +47,18 @@
       "reqd": 1
     },
     {
-      "fieldname": "items",
-      "fieldtype": "Table",
-      "label": "Lots to Transfer",
-      "options": "Metal Custody Transfer Item",
-      "reqd": 1
+      "fieldname": "column_layout_1_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "reference",
+      "fieldtype": "Data",
+      "label": "Reference"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Handover"
     },
     {
       "fieldname": "released_by",
@@ -52,6 +68,10 @@
       "reqd": 1
     },
     {
+      "fieldname": "column_layout_2_2",
+      "fieldtype": "Column Break"
+    },
+    {
       "fieldname": "received_by",
       "fieldtype": "Link",
       "label": "Received By",
@@ -59,9 +79,21 @@
       "reqd": 1
     },
     {
-      "fieldname": "reference",
-      "fieldtype": "Data",
-      "label": "Reference"
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Transferred Lots"
+    },
+    {
+      "fieldname": "items",
+      "fieldtype": "Table",
+      "label": "Lots to Transfer",
+      "options": "Metal Custody Transfer Item",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
     },
     {
       "fieldname": "remarks",
@@ -70,14 +102,21 @@
     }
   ],
   "field_order": [
+    "section_layout_01",
     "company",
     "posting_date",
+    "column_layout_1_2",
     "source_warehouse",
     "target_warehouse",
-    "items",
-    "released_by",
-    "received_by",
+    "column_layout_1_3",
     "reference",
+    "section_layout_02",
+    "released_by",
+    "column_layout_2_2",
+    "received_by",
+    "section_layout_03",
+    "items",
+    "section_layout_04",
     "remarks"
   ],
   "permissions": [
