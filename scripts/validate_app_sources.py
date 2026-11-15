@@ -32,7 +32,7 @@ for path in (MODULE / "doctype").glob("*/*.json"):
     # An __init__.py alone is not sufficient; the DocType-named module must exist.
     controller = path.with_suffix(".py")
     assert controller.is_file(), f"Missing DocType controller: {controller}"
-    expected_class = "".join(part.title() for part in path.stem.split("_"))
+    expected_class = data["name"].replace(" ", "")
     module_ast = ast.parse(controller.read_text(), filename=str(controller))
     declared_classes = {node.name for node in module_ast.body if isinstance(node, ast.ClassDef)}
     assert expected_class in declared_classes, (
@@ -75,7 +75,7 @@ for path in (MODULE / "doctype").glob("*/*.json"):
 known = {
     "Company", "Customer", "Supplier", "User", "Warehouse", "UOM", "Currency",
     "Work Order", "Job Card", "BOM", "Purchase Invoice", "Sales Invoice",
-    "Delivery Note", "Country",
+    "Delivery Note", "Country", "Account", "Project", "Cost Center", "Item", "Purchase Receipt", "Stock Entry",
 }
 for name, data in doctypes.items():
     for field in data["fields"]:

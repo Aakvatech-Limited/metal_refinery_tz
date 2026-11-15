@@ -1,0 +1,58 @@
+{
+  "doctype": "DocType",
+  "name": "Metal ERPNext Item Mapping",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 1,
+  "engine": "InnoDB",
+  "editable_grid": 1,
+  "fields": [
+    {
+      "fieldname": "metal_type",
+      "fieldtype": "Link",
+      "label": "Metal Type",
+      "options": "Metal Type",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "raw_material_item",
+      "fieldtype": "Link",
+      "label": "Raw Metal Stock Item",
+      "options": "Item",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 3
+    },
+    {
+      "fieldname": "finished_metal_item",
+      "fieldtype": "Link",
+      "label": "Finished Metal Item",
+      "options": "Item",
+      "in_list_view": 1,
+      "columns": 3
+    },
+    {
+      "fieldname": "residue_item",
+      "fieldtype": "Link",
+      "label": "Recoverable Residue Item",
+      "options": "Item",
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Mapping Notes"
+    }
+  ],
+  "field_order": [
+    "metal_type",
+    "raw_material_item",
+    "finished_metal_item",
+    "residue_item",
+    "description"
+  ],
+  "permissions": []
+}

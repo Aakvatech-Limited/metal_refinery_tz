@@ -1,0 +1,180 @@
+{
+  "doctype": "DocType",
+  "name": "Metal ERPNext Posting Profile",
+  "module": "Metal Refinery TZ",
+  "custom": 0,
+  "istable": 0,
+  "is_submittable": 0,
+  "autoname": "field:company",
+  "track_changes": 1,
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "section_layout_01",
+      "fieldtype": "Section Break",
+      "label": "Company & Draft Generation"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "auto_create_drafts",
+      "fieldtype": "Check",
+      "label": "Prepare ERPNext Draft Documents",
+      "default": "0",
+      "description": "Creates drafts only when submitted operational records are processed; never submits ERPNext accounting or stock documents"
+    },
+    {
+      "fieldname": "column_layout_1_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "cost_center",
+      "fieldtype": "Link",
+      "label": "Default Cost Center",
+      "options": "Cost Center",
+      "reqd": 1
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Default Project",
+      "options": "Project"
+    },
+    {
+      "fieldname": "section_layout_02",
+      "fieldtype": "Section Break",
+      "label": "Toll Refining Service Item"
+    },
+    {
+      "fieldname": "toll_service_item",
+      "fieldtype": "Link",
+      "label": "Toll Refining Service Item",
+      "options": "Item"
+    },
+    {
+      "fieldname": "section_metal_item_mappings",
+      "fieldtype": "Section Break",
+      "label": "Stock Items by Metal Type"
+    },
+    {
+      "fieldname": "metal_item_mappings",
+      "fieldtype": "Table",
+      "label": "Metal to ERPNext Item Mappings",
+      "options": "Metal ERPNext Item Mapping"
+    },
+    {
+      "fieldname": "section_layout_03",
+      "fieldtype": "Section Break",
+      "label": "Stock Warehouses"
+    },
+    {
+      "fieldname": "receipt_warehouse",
+      "fieldtype": "Link",
+      "label": "Supplier Receipt Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "wip_warehouse",
+      "fieldtype": "Link",
+      "label": "Refining Work in Progress Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "column_layout_3_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "finished_warehouse",
+      "fieldtype": "Link",
+      "label": "Finished Metal Warehouse",
+      "options": "Warehouse"
+    },
+    {
+      "fieldname": "section_layout_04",
+      "fieldtype": "Section Break",
+      "label": "Accounting Controls"
+    },
+    {
+      "fieldname": "expense_account",
+      "fieldtype": "Link",
+      "label": "Operating Cost Expense Account",
+      "options": "Account"
+    },
+    {
+      "fieldname": "income_account",
+      "fieldtype": "Link",
+      "label": "Tolling Service Income Account",
+      "options": "Account"
+    },
+    {
+      "fieldname": "section_layout_05",
+      "fieldtype": "Section Break",
+      "label": "Posting Policy"
+    },
+    {
+      "fieldname": "policy_notes",
+      "fieldtype": "Small Text",
+      "label": "Posting Policy Notes",
+      "description": "This profile prepares unsubmitted Purchase Receipts, Purchase Invoices, Sales Invoices and WIP movement drafts only. Final stock consumption/manufacture and valuation rules remain separate."
+    }
+  ],
+  "field_order": [
+    "section_layout_01",
+    "company",
+    "auto_create_drafts",
+    "column_layout_1_2",
+    "cost_center",
+    "project",
+    "section_layout_02",
+    "toll_service_item",
+    "section_metal_item_mappings",
+    "metal_item_mappings",
+    "section_layout_03",
+    "receipt_warehouse",
+    "wip_warehouse",
+    "column_layout_3_2",
+    "finished_warehouse",
+    "section_layout_04",
+    "expense_account",
+    "income_account",
+    "section_layout_05",
+    "policy_notes"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Accounts Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "export": 1,
+      "print": 1
+    },
+    {
+      "role": "Stock Manager",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "report": 1,
+      "print": 1
+    }
+  ]
+}

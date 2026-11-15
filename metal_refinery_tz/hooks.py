@@ -18,3 +18,10 @@ add_to_apps_screen = [
         "sequence_id": 30,
     }
 ]
+
+# Only refinery-linked PRs trigger invoice drafts; unrelated ERPNext PRs are unaffected.
+doc_events = {
+    "Purchase Receipt": {
+        "on_submit": "metal_refinery_tz.metal_refinery_tz.services.posting_bridge.create_purchase_invoice_after_receipt"
+    }
+}

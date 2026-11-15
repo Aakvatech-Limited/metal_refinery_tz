@@ -137,6 +137,13 @@
       "read_only": 1
     },
     {
+      "fieldname": "purchase_receipt",
+      "fieldtype": "Link",
+      "options": "Purchase Receipt",
+      "label": "Generated Purchase Receipt",
+      "read_only": 1
+    },
+    {
       "fieldname": "section_layout_05",
       "fieldtype": "Section Break",
       "label": "Remarks"
@@ -169,6 +176,7 @@
     "column_layout_4_2",
     "net_amount",
     "purchase_invoice",
+    "purchase_receipt",
     "section_layout_05",
     "remarks"
   ],

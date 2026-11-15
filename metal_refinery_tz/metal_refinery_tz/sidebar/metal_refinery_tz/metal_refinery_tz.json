@@ -206,6 +206,17 @@
       "icon": "file-chart-column",
       "link_type": "Report",
       "link_to": "Metal Custody and Bars"
+    },
+    {
+      "type": "Section Break",
+      "label": "Financial Configuration"
+    },
+    {
+      "type": "Link",
+      "label": "Metal ERPNext Posting Profile",
+      "icon": "settings-2",
+      "link_type": "DocType",
+      "link_to": "Metal ERPNext Posting Profile"
     }
   ]
 }
