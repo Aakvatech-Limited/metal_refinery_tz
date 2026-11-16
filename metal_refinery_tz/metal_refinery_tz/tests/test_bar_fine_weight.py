@@ -45,6 +45,7 @@ def _batch(input_fine=100, finished_fine=100):
 class TestBarFineWeight(unittest.TestCase):
     def _validate(self, bar, batch, existing=None):
         with (
+            patch("frappe.qb"),
             patch("frappe.get_doc", return_value=batch),
             patch("frappe.get_all", return_value=existing or []),
         ):
