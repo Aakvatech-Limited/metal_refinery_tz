@@ -9,7 +9,7 @@
   "type": "Workspace",
   "icon": "factory",
   "is_hidden": 0,
-  "content": "[{\"id\":\"mr00000000\",\"type\":\"header\",\"data\":{\"text\":\"Refinery Operations\",\"col\":12}},{\"id\":\"mr00000001\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Metal Intakes\",\"col\":3}},{\"id\":\"mr00000002\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Metal Assays\",\"col\":3}},{\"id\":\"mr00000003\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Refining Batches\",\"col\":3}},{\"id\":\"mr00000004\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Metal Exceptions\",\"col\":3}},{\"id\":\"mrp4card00020\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Metal Releases\",\"col\":4}},{\"id\":\"mrp4card00019\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Draft Toll Refining Jobs\",\"col\":4}},{\"id\":\"mrp4card00018\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Custody Transfers\",\"col\":4}},{\"id\":\"mr00000005\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Refining Batches by Status\",\"col\":6}},{\"id\":\"mr00000006\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Assays by Status\",\"col\":6}},{\"id\":\"mr00000007\",\"type\":\"card\",\"data\":{\"card_name\":\"Daily Operations\",\"col\":6}},{\"id\":\"mr00000008\",\"type\":\"card\",\"data\":{\"card_name\":\"Settlement & Pricing\",\"col\":6}},{\"id\":\"mr00000009\",\"type\":\"card\",\"data\":{\"card_name\":\"Traceability & Reconciliation\",\"col\":6}},{\"id\":\"mr00000010\",\"type\":\"card\",\"data\":{\"card_name\":\"Reference Masters\",\"col\":6}},{\"id\":\"mr00000011\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Intake\",\"col\":3}},{\"id\":\"mr00000012\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Assay\",\"col\":3}},{\"id\":\"mr00000013\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Refining Batch\",\"col\":3}},{\"id\":\"mr00000014\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Purchase Settlement\",\"col\":3}},{\"id\":\"mrp40000015\",\"type\":\"card\",\"data\":{\"card_name\":\"Vault & Custody\",\"col\":6}},{\"id\":\"mrp40000016\",\"type\":\"card\",\"data\":{\"card_name\":\"Toll Refining\",\"col\":6}},{\"id\":\"mrp40000017\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales & Export\",\"col\":6}},{\"id\":\"mrp4chart00021\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Toll Refining Jobs by Metal\",\"col\":6}},{\"id\":\"mrv16reports01\",\"type\":\"card\",\"data\":{\"card_name\":\"Operational Reports\",\"col\":6}},{\"id\":\"mr-finance-profile-01\",\"type\":\"card\",\"data\":{\"card_name\":\"Financial Configuration\",\"col\":6}}]",
+  "content": "[{\"id\":\"mr00000000\",\"type\":\"header\",\"data\":{\"text\":\"Refinery Operations\",\"col\":12}},{\"id\":\"mr-dashboard-shortcut\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Operations Dashboard\",\"col\":4}},{\"id\":\"mr00000001\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Metal Intakes\",\"col\":3}},{\"id\":\"mr00000002\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Metal Assays\",\"col\":3}},{\"id\":\"mr00000003\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Refining Batches\",\"col\":3}},{\"id\":\"mr00000004\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Metal Exceptions\",\"col\":3}},{\"id\":\"mrp4card00020\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Metal Releases\",\"col\":4}},{\"id\":\"mrp4card00019\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Draft Toll Refining Jobs\",\"col\":4}},{\"id\":\"mrp4card00018\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Custody Transfers\",\"col\":4}},{\"id\":\"mr00000005\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Refining Batches by Status\",\"col\":6}},{\"id\":\"mr00000006\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Assays by Status\",\"col\":6}},{\"id\":\"mr00000007\",\"type\":\"card\",\"data\":{\"card_name\":\"Daily Operations\",\"col\":6}},{\"id\":\"mr00000008\",\"type\":\"card\",\"data\":{\"card_name\":\"Settlement & Pricing\",\"col\":6}},{\"id\":\"mr00000009\",\"type\":\"card\",\"data\":{\"card_name\":\"Traceability & Reconciliation\",\"col\":6}},{\"id\":\"mr00000010\",\"type\":\"card\",\"data\":{\"card_name\":\"Reference Masters\",\"col\":6}},{\"id\":\"mr00000011\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Intake\",\"col\":3}},{\"id\":\"mr00000012\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Assay\",\"col\":3}},{\"id\":\"mr00000013\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Refining Batch\",\"col\":3}},{\"id\":\"mr00000014\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Metal Purchase Settlement\",\"col\":3}},{\"id\":\"mrp40000015\",\"type\":\"card\",\"data\":{\"card_name\":\"Vault & Custody\",\"col\":6}},{\"id\":\"mrp40000016\",\"type\":\"card\",\"data\":{\"card_name\":\"Toll Refining\",\"col\":6}},{\"id\":\"mrp40000017\",\"type\":\"card\",\"data\":{\"card_name\":\"Sales & Export\",\"col\":6}},{\"id\":\"mrp4chart00021\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Toll Refining Jobs by Metal\",\"col\":6}},{\"id\":\"mrv16reports01\",\"type\":\"card\",\"data\":{\"card_name\":\"Operational Reports\",\"col\":6}},{\"id\":\"mr-finance-profile-01\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings & Administration\",\"col\":6}}]",
   "charts": [
     {
       "chart_name": "Refining Batches by Status"
@@ -135,7 +135,7 @@
     {
       "type": "Card Break",
       "label": "Reference Masters",
-      "link_count": 3
+      "link_count": 2
     },
     {
       "type": "Link",
@@ -150,14 +150,6 @@
       "label": "Assay Method",
       "link_type": "DocType",
       "link_to": "Assay Method",
-      "hidden": 0,
-      "link_count": 0
-    },
-    {
-      "type": "Link",
-      "label": "Metal Refinery Settings",
-      "link_type": "DocType",
-      "link_to": "Metal Refinery Settings",
       "hidden": 0,
       "link_count": 0
     },
@@ -243,7 +235,9 @@
       "link_type": "Report",
       "link_to": "Metal Intake Traceability",
       "hidden": 0,
-      "link_count": 0
+      "link_count": 0,
+      "is_query_report": 1,
+      "report_ref_doctype": "Metal Intake"
     },
     {
       "type": "Link",
@@ -251,7 +245,9 @@
       "link_type": "Report",
       "link_to": "Refining Yield and Variance",
       "hidden": 0,
-      "link_count": 0
+      "link_count": 0,
+      "is_query_report": 1,
+      "report_ref_doctype": "Refining Batch"
     },
     {
       "type": "Link",
@@ -259,12 +255,22 @@
       "link_type": "Report",
       "link_to": "Metal Custody and Bars",
       "hidden": 0,
-      "link_count": 0
+      "link_count": 0,
+      "is_query_report": 1,
+      "report_ref_doctype": "Metal Lot"
     },
     {
       "type": "Card Break",
-      "label": "Financial Configuration",
-      "link_count": 1
+      "label": "Settings & Administration",
+      "link_count": 2
+    },
+    {
+      "type": "Link",
+      "label": "Metal Refinery Settings",
+      "link_type": "DocType",
+      "link_to": "Metal Refinery Settings",
+      "hidden": 0,
+      "link_count": 0
     },
     {
       "type": "Link",
@@ -276,6 +282,12 @@
     }
   ],
   "shortcuts": [
+    {
+      "type": "Dashboard",
+      "link_to": "Metal Refinery Operations",
+      "label": "Operations Dashboard",
+      "icon": "chart-column"
+    },
     {
       "type": "DocType",
       "link_to": "Metal Intake",

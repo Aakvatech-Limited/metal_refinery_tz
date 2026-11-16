@@ -176,13 +176,6 @@
       "link_to": "Assay Method"
     },
     {
-      "type": "Link",
-      "label": "Metal Refinery Settings",
-      "icon": "settings",
-      "link_type": "DocType",
-      "link_to": "Metal Refinery Settings"
-    },
-    {
       "type": "Section Break",
       "label": "Operational Reports"
     },
@@ -209,7 +202,14 @@
     },
     {
       "type": "Section Break",
-      "label": "Financial Configuration"
+      "label": "Settings & Administration"
+    },
+    {
+      "type": "Link",
+      "label": "Metal Refinery Settings",
+      "icon": "settings",
+      "link_type": "DocType",
+      "link_to": "Metal Refinery Settings"
     },
     {
       "type": "Link",
