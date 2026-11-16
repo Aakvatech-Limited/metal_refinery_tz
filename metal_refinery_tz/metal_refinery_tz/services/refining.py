@@ -13,6 +13,12 @@ from metal_refinery_tz.metal_refinery_tz.services.metal_math import (
 def calculate_batch(doc):
     if not doc.inputs:
         frappe.throw(_("Refining batch requires at least one input lot"))
+    if doc.docstatus == 1:
+        lot_table = frappe.qb.DocType("Metal Lot")
+        for name in sorted({row.metal_lot for row in doc.inputs if row.metal_lot}):
+            frappe.qb.from_(lot_table).select(lot_table.name).where(
+                lot_table.name == name
+            ).for_update().run()
     input_totals = defaultdict(lambda: Decimal(0))
     output_totals = defaultdict(lambda: Decimal(0))
     seen = set()
