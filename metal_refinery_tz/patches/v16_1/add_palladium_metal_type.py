@@ -10,3 +10,12 @@ def execute():
             "symbol": "Pd",
             "is_active": 1,
         }).insert(ignore_permissions=True)
+
+    # Historical batches predate the round-number field and are first rounds.
+    for batch in frappe.get_all(
+        "Refining Batch", fields=["name", "round_number"], limit_page_length=0
+    ):
+        if not batch.round_number:
+            frappe.db.set_value(
+                "Refining Batch", batch.name, "round_number", 1, update_modified=False
+            )
