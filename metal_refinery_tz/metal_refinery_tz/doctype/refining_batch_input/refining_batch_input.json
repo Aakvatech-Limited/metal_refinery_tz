@@ -66,6 +66,12 @@
       "options": "UOM",
       "reqd": 1,
       "in_list_view": 0
+    },
+    {
+      "fieldname": "input_assay",
+      "fieldtype": "Link",
+      "label": "Input Composition Assay",
+      "options": "Metal Assay"
     }
   ],
   "field_order": [
@@ -75,7 +81,8 @@
     "input_weight",
     "purity_percent",
     "fine_weight",
-    "uom"
+    "uom",
+    "input_assay"
   ],
   "permissions": [],
   "sort_field": "modified",
