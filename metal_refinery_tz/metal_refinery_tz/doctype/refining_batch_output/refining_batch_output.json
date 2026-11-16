@@ -64,6 +64,13 @@
       "fieldtype": "Small Text",
       "label": "Remarks",
       "in_list_view": 0
+    },
+    {
+      "fieldname": "output_lot",
+      "fieldtype": "Link",
+      "label": "Generated Output Lot",
+      "options": "Metal Lot",
+      "read_only": 1
     }
   ],
   "field_order": [
@@ -73,7 +80,8 @@
     "purity_percent",
     "fine_weight",
     "uom",
-    "remarks"
+    "remarks",
+    "output_lot"
   ],
   "permissions": [],
   "sort_field": "modified",
