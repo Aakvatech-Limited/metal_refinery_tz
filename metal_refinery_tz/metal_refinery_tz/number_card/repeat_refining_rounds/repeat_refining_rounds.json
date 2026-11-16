@@ -1,0 +1,14 @@
+{
+  "doctype": "Number Card",
+  "name": "Repeat Refining Rounds",
+  "label": "Repeat Refining Rounds",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_public": 1,
+  "type": "Document Type",
+  "document_type": "Refining Batch",
+  "function": "Count",
+  "filters_json": "[[\"docstatus\",\"=\",1],[\"round_number\",\">\",1]]",
+  "dynamic_filters_json": "[]",
+  "show_percentage_stats": 0
+}
