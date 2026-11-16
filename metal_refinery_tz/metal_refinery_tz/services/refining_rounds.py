@@ -195,10 +195,15 @@ def require_final_outputs(batch):
                     available[component.metal_type] += fine(
                         row.input_weight, component.purity_percent
                     )
-    for metal, actual in totals.items():
-        if actual > available[metal] + Decimal("0.000001"):
+    # Finished metal competes with residue, samples and WIP for the same
+    # element. The latest final assay cannot create metal hidden in other outputs.
+    for output in batch.outputs:
+        if output.output_type not in ("Finished Metal", "Process Loss"):
+            totals[output.metal_type] += decimal(output.fine_weight)
+    for metal, accounted in totals.items():
+        if accounted > available[metal] + Decimal("0.000001"):
             frappe.throw(
-                _("Confirmed finished {0} fine weight exceeds input assay composition").format(metal)
+                _("Confirmed {0} fine weight plus remaining outputs exceeds input composition").format(metal)
             )
     return totals
 
