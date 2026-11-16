@@ -24,16 +24,14 @@ frappe.ui.form.on("Refining Batch", {
         }, __("Refining Rounds"));
 
         frm.add_custom_button(__("Create Next Round"), () => {
-            const metalTypes = [...new Set(outputs.map(row => row.metal_type))];
             frappe.prompt({
-                fieldname: "metal_type",
+                fieldname: "lot",
                 fieldtype: "Select",
-                label: __("Metal to Refine"),
-                options: metalTypes,
+                label: __("Output Lot to Refine"),
+                options: outputs.map(row => row.output_lot),
                 reqd: 1,
-            }, ({ metal_type }) => {
-                const lot_names = outputs.filter(row => row.metal_type === metal_type)
-                    .map(row => row.output_lot);
+            }, ({ lot }) => {
+                const lot_names = [lot];
                 frappe.call({
                     method: "metal_refinery_tz.metal_refinery_tz.services.refining_rounds.create_next_round",
                     args: { source_batch: frm.doc.name, lot_names },
