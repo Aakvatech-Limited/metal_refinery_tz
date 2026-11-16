@@ -163,7 +163,9 @@ def delete_unused_output_lots(doc):
                             update_modified=False)
 
 
-def require_final_outputs(batch):
+def confirmed_finished_fine(batch):
+    """Return measured fine weight per metal; provisional output purity is historical."""
+    totals = defaultdict(Decimal)
     finished = [r for r in batch.outputs if r.output_type == "Finished Metal"]
     if not finished:
         frappe.throw(_("No finished metal output exists"))
@@ -172,11 +174,33 @@ def require_final_outputs(batch):
             frappe.throw(_("Finished output lot is not yet created"))
         assay = latest_assay(row.output_lot, final_only=True)
         if not assay:
-            frappe.throw(_("Finished output {0} requires the latest final assay").format(row.output_lot))
+            frappe.throw(_("Finished output {0} requires latest final assay").format(row.output_lot))
         result = next((r for r in assay.results if r.metal_type == row.metal_type), None)
-        if not result or decimal(result.purity_percent) != decimal(row.purity_percent):
-            frappe.throw(_("Finished output purity must match its final assay for {0}").format(row.metal_type))
-    return True
+        if not result:
+            frappe.throw(_("Final output assay is missing {0}").format(row.metal_type))
+        totals[row.metal_type] += fine(row.weight, result.purity_percent)
+    return totals
+
+
+def require_final_outputs(batch):
+    """Confirm the latest assays and prohibit creation of excess fine metal."""
+    totals = confirmed_finished_fine(batch)
+    available = defaultdict(Decimal)
+    for row in batch.inputs:
+        available[row.metal_type] += decimal(row.fine_weight)
+        if row.input_assay:
+            assay = frappe.get_doc("Metal Assay", row.input_assay)
+            for component in assay.results:
+                if component.metal_type != row.metal_type:
+                    available[component.metal_type] += fine(
+                        row.input_weight, component.purity_percent
+                    )
+    for metal, actual in totals.items():
+        if actual > available[metal] + Decimal("0.000001"):
+            frappe.throw(
+                _("Confirmed finished {0} fine weight exceeds input assay composition").format(metal)
+            )
+    return totals
 
 
 @frappe.whitelist()
