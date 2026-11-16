@@ -24,14 +24,31 @@ def validate_bar(doc):
         frappe.throw(_("Company-owned bars cannot have a customer owner"))
     positive(doc.weight, _("Bar gross weight"))
     doc.fine_weight = float(fine(doc.weight, doc.purity_percent))
-    produced = sum(decimal(r.fine_weight) for r in batch.outputs if r.output_type == "Finished Metal")
+    # A bar cannot consume more fine metal than was supplied to the batch,
+    # even if a finished-output row has been entered incorrectly.
+    input_fine = sum((decimal(row.fine_weight) for row in batch.inputs), decimal(0))
+    finished_fine = sum(
+        (decimal(row.fine_weight) for row in batch.outputs if row.output_type == "Finished Metal"),
+        decimal(0),
+    )
+    available_fine = min(input_fine, finished_fine)
+    if available_fine <= 0:
+        frappe.throw(_("Batch has no available finished fine-metal weight for bars"))
+
     others = frappe.get_all(
-        "Metal Bar Register", filters={"refining_batch": doc.refining_batch},
+        "Metal Bar Register",
+        filters={"refining_batch": doc.refining_batch},
         fields=["name", "fine_weight"],
     )
-    allocated = sum((decimal(x.fine_weight) for x in others if x.name != doc.name), decimal(0))
-    if allocated + decimal(doc.fine_weight) > produced + decimal("0.000001"):
-        frappe.throw(_("Registered bars exceed the batch finished fine-metal output"))
+    allocated = sum((decimal(row.fine_weight) for row in others if row.name != doc.name), decimal(0))
+    requested = decimal(doc.fine_weight)
+    # Six-decimal weights are the accounting precision in metal_math; do not
+    # allow a one-micro-unit over-allocation through an extra tolerance.
+    if allocated + requested > available_fine:
+        frappe.throw(
+            _("Total bar fine weight ({0}) exceeds available batch fine weight ({1}); already registered: {2}")
+            .format(allocated + requested, available_fine, allocated)
+        )
     if doc.warehouse and frappe.db.get_value("Warehouse", doc.warehouse, "company") != doc.company:
         frappe.throw(_("Bar warehouse belongs to another company"))
     old = doc.get_doc_before_save()
