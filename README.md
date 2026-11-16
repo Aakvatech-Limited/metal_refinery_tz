@@ -3,7 +3,7 @@
 Frappe/ERPNext v16 companion application for operational traceability in precious-metal refineries.
 
 ## Functional coverage
-Metal Intake, Assay and Price Fixing; Purchase Settlement; Refining Batch and fine-metal reconciliation; Vault Custody Transfer and Count; Metal Bar Register; Toll Refining Agreement and Job; controlled Metal Release Authorization; and Metal Export Shipment with evidence checklist.
+Metal Intake, Assay and Price Fixing; Purchase Settlement; Refining Batch multi-round traceability, repeated output-lot assays, and fine-metal reconciliation including palladium byproduct recovery; Vault Custody Transfer and Count; Metal Bar Register; Toll Refining Agreement and Job; controlled Metal Release Authorization; and Metal Export Shipment with evidence checklist.
 
 Navigation includes the app Desktop entry, standard Dock, Sidebar, Workspace, initial Number Cards, Dashboard Charts and Operations Dashboard.
 
@@ -27,4 +27,4 @@ For an existing installation, pull the latest app code before migrating. Phase 4
 
 See [Stage 4 guide](docs/stage4-custody-tolling-export.md) and [Roadmap](docs/roadmap.md).
 
-Application version: `16.1.0`.
+Application version: `16.2.2`.
