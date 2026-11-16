@@ -35,6 +35,9 @@ def assert_input_assay(row, lot):
             assay = frappe.get_doc("Metal Assay", row.input_assay)
             if assay.docstatus != 1 or assay.company != lot.company or assay.metal_intake != lot.intake:
                 frappe.throw(_("Input assay must be a submitted assay for the original intake"))
+            result = next((r for r in assay.results if r.metal_type == row.metal_type), None)
+            if not result or abs(decimal(result.purity_percent) - decimal(row.purity_percent)) > Decimal("0.000001"):
+                frappe.throw(_("Original lot input purity must match its selected assay"))
         return
     if not row.input_assay:
         frappe.throw(_("Refined input lot {0} requires a submitted assay").format(lot.name))
@@ -66,7 +69,8 @@ def validate_round(doc):
         (int(frappe.db.get_value("Refining Batch", source, "round_number") or 1) for source in sources),
         default=0,
     )
-    doc.final_assay_confirmed = 0
+    if doc.docstatus == 0:
+        doc.final_assay_confirmed = 0
     # The primary metal may be separated from an alloy but must not be invented.
     input_primary = sum(
         (decimal(row.fine_weight) for row in doc.inputs if row.metal_type == doc.metal_type),
@@ -134,6 +138,7 @@ def create_output_lots(doc):
             "status": "Available",
         })
         lot.insert(ignore_permissions=True)
+        row.output_lot = lot.name
         frappe.db.set_value("Refining Batch Output", row.name, "output_lot", lot.name,
                             update_modified=False)
 
