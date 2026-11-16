@@ -67,6 +67,18 @@
       "read_only": 1
     },
     {
+      "fieldname": "round_number",
+      "fieldtype": "Int",
+      "label": "Refining Round",
+      "read_only": 1
+    },
+    {
+      "fieldname": "final_assay_confirmed",
+      "fieldtype": "Check",
+      "label": "Final Output Assays Confirmed",
+      "read_only": 1
+    },
+    {
       "fieldname": "section_layout_02",
       "fieldtype": "Section Break",
       "label": "Manufacturing References"
@@ -180,6 +192,8 @@
     "column_layout_1_3",
     "weight_uom",
     "status",
+    "round_number",
+    "final_assay_confirmed",
     "section_layout_02",
     "work_order",
     "column_layout_2_2",
