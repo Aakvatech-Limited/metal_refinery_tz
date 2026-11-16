@@ -78,8 +78,18 @@ def validate_reconciliation(doc):
     if batch.metal_type != doc.metal_type:
         frappe.throw(_("Reconciliation metal differs from batch metal"))
     doc.input_fine_weight = batch.input_fine_weight
-    doc.accounted_fine_weight = batch.output_fine_weight
-    doc.variance_fine_weight = batch.unaccounted_fine_weight
+    accounted = decimal(batch.output_fine_weight)
+    if any(r.output_type == "Finished Metal" for r in batch.outputs):
+        from metal_refinery_tz.metal_refinery_tz.services.refining_rounds import require_final_outputs
+        measured = require_final_outputs(batch)
+        provisional = sum(
+            (decimal(row.fine_weight) for row in batch.outputs
+             if row.output_type == "Finished Metal" and row.metal_type == batch.metal_type),
+            Decimal(0),
+        )
+        accounted += measured.get(batch.metal_type, Decimal(0)) - provisional
+    doc.accounted_fine_weight = float(weight(accounted))
+    doc.variance_fine_weight = float(weight(decimal(batch.input_fine_weight) - accounted))
     variance = abs(decimal(doc.variance_fine_weight))
     tolerance = decimal(doc.tolerance)
     if tolerance < 0:
