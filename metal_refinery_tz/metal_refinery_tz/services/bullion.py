@@ -37,7 +37,7 @@ def validate_bar(doc):
     doc.fine_weight = float(fine(doc.weight, doc.purity_percent))
     # Byproducts (e.g. Pd or Ag) must be supported by constituent assays;
     # do not treat the full gold feed weight as available palladium.
-    from metal_refinery_tz.metal_refinery_tz.services.refining_rounds import latest_assay
+    from metal_refinery_tz.metal_refinery_tz.services.refining_rounds import require_final_outputs
     input_fine = decimal(0)
     for row in batch.inputs:
         if row.metal_type == doc.metal_type:
@@ -52,11 +52,9 @@ def validate_bar(doc):
         if row.output_type == "Finished Metal" and row.metal_type == doc.metal_type
     ]
     for output in finished_rows:
-        if not output.output_lot or not latest_assay(output.output_lot, final_only=True):
-            frappe.throw(_("Finished output requires confirmed lot assay"))
         if frappe.db.exists("Refining Batch Input", {"metal_lot": output.output_lot}):
             frappe.throw(_("Cannot register bars from an output already sent for further refining"))
-    finished_fine = sum((decimal(row.fine_weight) for row in finished_rows), decimal(0))
+    finished_fine = require_final_outputs(batch).get(doc.metal_type, decimal(0))
     available_fine = min(input_fine, finished_fine)
     if available_fine <= 0:
         frappe.throw(_("Batch has no available finished fine-metal weight for bars"))
