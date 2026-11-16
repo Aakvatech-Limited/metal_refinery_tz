@@ -189,6 +189,10 @@ def create_next_round(source_batch, lot_names=None):
     batch.check_permission("read")
     if batch.docstatus != 1:
         frappe.throw(_("Previous refining round must be submitted"))
+    if batch.final_assay_confirmed:
+        frappe.throw(_("Cancel final reconciliation before reopening a finished refining chain"))
+    if frappe.db.exists("Metal Bar Register", {"refining_batch": batch.name}):
+        frappe.throw(_("A batch with registered bars cannot be re-refined"))
     if isinstance(lot_names, str):
         lot_names = json.loads(lot_names)
     selected = set(lot_names or [r.output_lot for r in batch.outputs if r.output_lot])
