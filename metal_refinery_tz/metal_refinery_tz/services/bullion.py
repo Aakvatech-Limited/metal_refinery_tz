@@ -6,6 +6,12 @@ from metal_refinery_tz.metal_refinery_tz.services.metal_math import decimal, fin
 
 
 def validate_bar(doc):
+    # Serialize bar registrations against the same parent batch so two
+    # concurrent requests cannot both consume the final available balance.
+    parent = frappe.qb.DocType("Refining Batch")
+    frappe.qb.from_(parent).select(parent.name).where(
+        parent.name == doc.refining_batch
+    ).for_update().run()
     batch = frappe.get_doc("Refining Batch", doc.refining_batch)
     if batch.docstatus != 1 or batch.company != doc.company:
         frappe.throw(_("Bar requires a submitted batch in the same company"))
