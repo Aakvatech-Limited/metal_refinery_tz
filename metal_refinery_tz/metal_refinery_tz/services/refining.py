@@ -33,10 +33,11 @@ def calculate_batch(doc):
         row.fine_weight = float(fine(row.input_weight, row.purity_percent))
         input_totals[row.metal_type] += decimal(row.fine_weight)
     for row in doc.outputs or []:
-        if row.metal_type != doc.metal_type or row.uom != doc.weight_uom:
-            frappe.throw(_("Output metal type/UOM must match the batch"))
+        if row.uom != doc.weight_uom:
+            frappe.throw(_("Output weight UOM must match the batch"))
         row.fine_weight = float(fine(row.weight, row.purity_percent))
-        output_totals[row.metal_type] += decimal(row.fine_weight)
+        if row.metal_type == doc.metal_type:
+            output_totals[row.metal_type] += decimal(row.fine_weight)
     doc.input_fine_weight = float(weight(sum(input_totals.values(), Decimal(0))))
     doc.output_fine_weight = float(weight(sum(output_totals.values(), Decimal(0))))
     doc.unaccounted_fine_weight = float(weight(decimal(doc.input_fine_weight) - decimal(doc.output_fine_weight)))
