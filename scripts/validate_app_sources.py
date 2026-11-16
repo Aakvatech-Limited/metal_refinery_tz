@@ -122,4 +122,73 @@ for item in workspace["links"]:
     if item.get("link_type") == "Report":
         assert item["link_to"] in reports, item
 
+# Navigation is complete only when every standalone record and report is reachable.
+targets = {
+    "DocType": {name for name, doc in doctypes.items() if not doc.get("istable")},
+    "Report": set(reports),
+    "Workspace": {workspace["name"]},
+    "Dashboard": {dash["name"]},
+}
+for surface, rows in (("Sidebar", side["items"]), ("Workspace", workspace["links"])):
+    linked = {}
+    for row in rows:
+        if row.get("link_to"):
+            kind = row["link_type"]
+            assert row["link_to"] in targets[kind], (surface, row)
+            key = (kind, row["link_to"])
+            assert key not in linked, (surface, "Duplicate navigation target", key)
+            linked[key] = row
+    for kind in ("DocType", "Report"):
+        assert {name for k, name in linked if k == kind} == targets[kind], (surface, kind)
+
+assert any(row.get("link_to") == dash["name"] for row in side["items"])
+shortcuts = {row["label"]: row for row in workspace["shortcuts"]}
+assert any(row["type"] == "Dashboard" and row["link_to"] == dash["name"]
+           for row in shortcuts.values())
+for block in blocks:
+    if block["type"] == "shortcut":
+        row = shortcuts[block["data"]["shortcut_name"]]
+        assert row["link_to"] in targets[row["type"]], row
+
+group = None
+group_count = 0
+group_labels = set()
+for row in workspace["links"]:
+    if row["type"] == "Card Break":
+        if group:
+            assert group["link_count"] == group_count, group
+        group, group_count = row, 0
+        group_labels.add(row["label"])
+    else:
+        group_count += 1
+        if row["link_type"] == "Report":
+            assert row["is_query_report"] == 1, row
+            assert row["report_ref_doctype"] == reports[row["link_to"]]["ref_doctype"], row
+assert group and group["link_count"] == group_count
+assert {b["data"]["card_name"] for b in blocks if b["type"] == "card"} == group_labels
+
+for kind, collection, field, names, folder in (
+    ("number_card", "number_cards", "number_card_name", cards, "number_card"),
+    ("chart", "charts", "chart_name", charts, "dashboard_chart"),
+):
+    assert {b["data"][field] for b in blocks if b["type"] == kind} == names
+    assert {row[field] for row in workspace[collection]} == names
+    dashboard_field = "card" if kind == "number_card" else "chart"
+    assert {row[dashboard_field] for row in dash["cards" if kind == "number_card" else "charts"]} == names
+    for path in (MODULE / folder).glob("*/*.json"):
+        doc = json.loads(path.read_text())
+        assert doc["is_standard"] == 1 and doc["module"] == module_name, path
+        source = doctypes[doc["document_type"]]
+        fields = {f["fieldname"] for f in source["fields"]} | {"docstatus"}
+        filters = json.loads(doc["filters_json"])
+        assert all(f[0] in fields for f in filters), path
+        if kind == "chart":
+            assert doc["group_by_based_on"] in fields, path
+            assert ["docstatus", "!=", 2] in filters, path
+
+dock = json.loads((PACKAGE / "dock/metal_refinery_tz/metal_refinery_tz.json").read_text())
+assert dock["standard"] == 1 and dock["app"] == "metal_refinery_tz"
+assert any(row["link_type"] == "Sidebar" and row["link_to"] == side["name"]
+           for row in dock["items"])
+
 print(f"OK: {len(doctypes)} DocTypes; {len(cards)} Cards; {len(charts)} Charts; all source links resolve")
