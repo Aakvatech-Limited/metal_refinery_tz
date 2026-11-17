@@ -21,6 +21,22 @@ Metal Type is master-data driven. Palladium (Pd) is seeded by a post-model-sync 
 
 **Separate scope:** A mandatory *post-casting bar assay* is intentionally not included in this PR; it will follow after the multi-round workflow is stabilized.
 
+## Downstream dependency: customer post-delivery assay (design hold)
+
+**Status: requirement recorded, implementation deferred.** This is distinct from mandatory post-casting assay/QC on each bar before release. Do not add customer assay DocTypes, ERPNext accounting postings or stock quantity adjustments to this PR until the multi-round refining architecture is finalized and its downstream effects reviewed.
+
+A customer may assay delivered metal after receipt and report a different accepted fine-metal quantity. The future design must link each customer assay/certificate to the original customer, delivery, individual bar(s), approved post-casting bar assays, originating output lot(s), refining round lineage and original Sales Invoice or tolling settlement. Allow successive customer assays, disputed results, documented approval/supersession and one authoritative accepted commercial result; preserve the original measured/certified results without overwriting them.
+
+Required outcomes to design and test after refining stabilization:
+
+1. **Customer accepted quantity below delivered/billed fine metal:** calculate the shortfall by metal and UOM with contract-defined pricing/tolerance; issue an authorized credit note against the original invoice where commercially applicable. Track rejected fine-metal quantity pending a separately approved write-off. Do **not** auto-return or write off physical stock merely because the customer reported an assay difference.
+2. **Customer accepted quantity above delivered/billed fine metal:** calculate the surplus and appropriate supplementary billing/debit adjustment. Reverse only previously *posted and eligible* losses/write-offs up to their unreversed amounts; otherwise classify and approve any gain independently. Never manufacture inventory through a commercial assay difference.
+3. **Re-assay/arbitration:** compare the latest approved commercial result against cumulative prior settlements; create only the **net incremental** credit/debit/reversal, avoiding duplicate adjustments across rounds.
+4. **Ownership and posting:** distinguish refinery-owned sales from customer-owned/toll-refined metal. Apply stock movements only with verified physical ownership and custody events; make ERPNext transactions company-scoped, permission-gated, idempotent and cancellation/reversal safe. Identify tax, valuation, revenue and inventory-ledger treatment explicitly before implementation.
+5. **Controls and reporting:** preserve per-metal physical weight, purity, fine weight, original release figures, customer-accepted figures, variance, supporting certificates and signed approvals. Expose pending disputes, credit notes, unreconciled quantities, pending write-offs and reversals through permission-safe navigation, Number Cards, Charts and Dashboard after the dependent feature is approved.
+
+**Dependency review gate:** After multi-round refining and mandatory post-casting bar QC are implemented and verified, assess reuse of Metal Assay stage/supersession, per-metal mass balance, bar-to-output-to-round lineage, ownership and ERPNext posting bridge. Define settlement quantity versus physical inventory quantity, then approve and implement the downstream feature separately. Its absence does not waive any mandatory bar-QC or release gate in PR #10.
+
 ## Positive tests
 
 - Gold input produces recovered silver and palladium outputs only when the input assay has corresponding Ag and Pd components.
