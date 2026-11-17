@@ -13,6 +13,12 @@ from metal_refinery_tz.metal_refinery_tz.services.metal_math import (
 def calculate_batch(doc):
     if not doc.inputs:
         frappe.throw(_("Refining batch requires at least one input lot"))
+    if doc.docstatus == 1:
+        lot_table = frappe.qb.DocType("Metal Lot")
+        for name in sorted({row.metal_lot for row in doc.inputs if row.metal_lot}):
+            frappe.qb.from_(lot_table).select(lot_table.name).where(
+                lot_table.name == name
+            ).for_update().run()
     input_totals = defaultdict(lambda: Decimal(0))
     output_totals = defaultdict(lambda: Decimal(0))
     seen = set()
@@ -33,10 +39,11 @@ def calculate_batch(doc):
         row.fine_weight = float(fine(row.input_weight, row.purity_percent))
         input_totals[row.metal_type] += decimal(row.fine_weight)
     for row in doc.outputs or []:
-        if row.metal_type != doc.metal_type or row.uom != doc.weight_uom:
-            frappe.throw(_("Output metal type/UOM must match the batch"))
+        if row.uom != doc.weight_uom:
+            frappe.throw(_("Output weight UOM must match the batch"))
         row.fine_weight = float(fine(row.weight, row.purity_percent))
-        output_totals[row.metal_type] += decimal(row.fine_weight)
+        if row.metal_type == doc.metal_type:
+            output_totals[row.metal_type] += decimal(row.fine_weight)
     doc.input_fine_weight = float(weight(sum(input_totals.values(), Decimal(0))))
     doc.output_fine_weight = float(weight(sum(output_totals.values(), Decimal(0))))
     doc.unaccounted_fine_weight = float(weight(decimal(doc.input_fine_weight) - decimal(doc.output_fine_weight)))
@@ -71,8 +78,18 @@ def validate_reconciliation(doc):
     if batch.metal_type != doc.metal_type:
         frappe.throw(_("Reconciliation metal differs from batch metal"))
     doc.input_fine_weight = batch.input_fine_weight
-    doc.accounted_fine_weight = batch.output_fine_weight
-    doc.variance_fine_weight = batch.unaccounted_fine_weight
+    accounted = decimal(batch.output_fine_weight)
+    if any(r.output_type == "Finished Metal" for r in batch.outputs):
+        from metal_refinery_tz.metal_refinery_tz.services.refining_rounds import require_final_outputs
+        measured = require_final_outputs(batch)
+        provisional = sum(
+            (decimal(row.fine_weight) for row in batch.outputs
+             if row.output_type == "Finished Metal" and row.metal_type == batch.metal_type),
+            Decimal(0),
+        )
+        accounted += measured.get(batch.metal_type, Decimal(0)) - provisional
+    doc.accounted_fine_weight = float(weight(accounted))
+    doc.variance_fine_weight = float(weight(decimal(batch.input_fine_weight) - accounted))
     variance = abs(decimal(doc.variance_fine_weight))
     tolerance = decimal(doc.tolerance)
     if tolerance < 0:

@@ -15,8 +15,13 @@ def validate_bar(doc):
     batch = frappe.get_doc("Refining Batch", doc.refining_batch)
     if batch.docstatus != 1 or batch.company != doc.company:
         frappe.throw(_("Bar requires a submitted batch in the same company"))
-    if batch.metal_type != doc.metal_type or batch.ownership != doc.ownership:
-        frappe.throw(_("Bar metal and ownership must match its refining batch"))
+    if batch.ownership != doc.ownership:
+        frappe.throw(_("Bar ownership must match its refining batch"))
+    if not batch.final_assay_confirmed:
+        frappe.throw(_("Batch requires reconciled final assays before bar registration"))
+    if not frappe.db.exists("Refining Batch Reconciliation",
+                            {"refining_batch": batch.name, "docstatus": 1}):
+        frappe.throw(_("Batch must be reconciled before bar registration"))
     if batch.weight_uom != doc.uom:
         frappe.throw(_("Bar weight UOM must equal batch weight UOM"))
     if doc.ownership == "Customer Owned":
@@ -30,20 +35,33 @@ def validate_bar(doc):
         frappe.throw(_("Company-owned bars cannot have a customer owner"))
     positive(doc.weight, _("Bar gross weight"))
     doc.fine_weight = float(fine(doc.weight, doc.purity_percent))
-    # A bar cannot consume more fine metal than was supplied to the batch,
-    # even if a finished-output row has been entered incorrectly.
-    input_fine = sum((decimal(row.fine_weight) for row in batch.inputs), decimal(0))
-    finished_fine = sum(
-        (decimal(row.fine_weight) for row in batch.outputs if row.output_type == "Finished Metal"),
-        decimal(0),
-    )
+    # Byproducts (e.g. Pd or Ag) must be supported by constituent assays;
+    # do not treat the full gold feed weight as available palladium.
+    from metal_refinery_tz.metal_refinery_tz.services.refining_rounds import require_final_outputs
+    input_fine = decimal(0)
+    for row in batch.inputs:
+        if row.metal_type == doc.metal_type:
+            input_fine += decimal(row.fine_weight)
+        elif row.input_assay:
+            assay = frappe.get_doc("Metal Assay", row.input_assay)
+            component = next((r for r in assay.results if r.metal_type == doc.metal_type), None)
+            if component:
+                input_fine += fine(row.input_weight, component.purity_percent)
+    finished_rows = [
+        row for row in batch.outputs
+        if row.output_type == "Finished Metal" and row.metal_type == doc.metal_type
+    ]
+    for output in finished_rows:
+        if frappe.db.exists("Refining Batch Input", {"metal_lot": output.output_lot}):
+            frappe.throw(_("Cannot register bars from an output already sent for further refining"))
+    finished_fine = require_final_outputs(batch).get(doc.metal_type, decimal(0))
     available_fine = min(input_fine, finished_fine)
     if available_fine <= 0:
         frappe.throw(_("Batch has no available finished fine-metal weight for bars"))
 
     others = frappe.get_all(
         "Metal Bar Register",
-        filters={"refining_batch": doc.refining_batch},
+        filters={"refining_batch": doc.refining_batch, "metal_type": doc.metal_type},
         fields=["name", "fine_weight"],
     )
     allocated = sum((decimal(row.fine_weight) for row in others if row.name != doc.name), decimal(0))

@@ -26,8 +26,13 @@
       "fieldname": "metal_intake",
       "fieldtype": "Link",
       "label": "Metal Intake",
-      "options": "Metal Intake",
-      "reqd": 1
+      "options": "Metal Intake"
+    },
+    {
+      "fieldname": "metal_lot",
+      "fieldtype": "Link",
+      "label": "Assayed Metal Lot",
+      "options": "Metal Lot"
     },
     {
       "fieldname": "column_layout_1_2",
@@ -120,6 +125,7 @@
     "section_layout_01",
     "company",
     "metal_intake",
+    "metal_lot",
     "column_layout_1_2",
     "sample_id",
     "method",

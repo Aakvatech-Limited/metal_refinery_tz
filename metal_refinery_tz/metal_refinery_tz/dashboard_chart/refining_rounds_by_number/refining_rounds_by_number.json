@@ -1,0 +1,17 @@
+{
+  "doctype": "Dashboard Chart",
+  "name": "Refining Rounds by Number",
+  "chart_name": "Refining Rounds by Number",
+  "module": "Metal Refinery TZ",
+  "is_standard": 1,
+  "is_public": 1,
+  "chart_type": "Group By",
+  "document_type": "Refining Batch",
+  "group_by_based_on": "round_number",
+  "group_by_type": "Count",
+  "type": "Bar",
+  "timeseries": 0,
+  "filters_json": "[[\"docstatus\",\"!=\",2],[\"docstatus\",\"=\",1]]",
+  "dynamic_filters_json": "[]",
+  "number_of_groups": 10
+}

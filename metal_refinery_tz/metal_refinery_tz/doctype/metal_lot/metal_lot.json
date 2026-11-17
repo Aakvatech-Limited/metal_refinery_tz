@@ -20,7 +20,20 @@
       "fieldtype": "Link",
       "label": "Metal Intake",
       "options": "Metal Intake",
-      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "source_refining_batch",
+      "fieldtype": "Link",
+      "label": "Originating Refining Batch",
+      "options": "Refining Batch",
+      "read_only": 1
+    },
+    {
+      "fieldname": "source_output_row",
+      "fieldtype": "Data",
+      "label": "Source Output Row",
+      "read_only": 1,
       "unique": 1
     },
     {
@@ -119,6 +132,8 @@
   "field_order": [
     "section_layout_01",
     "intake",
+    "source_refining_batch",
+    "source_output_row",
     "company",
     "column_layout_1_2",
     "metal_type",

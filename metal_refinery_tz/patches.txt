@@ -1,3 +1,4 @@
 [pre_model_sync]
 
 [post_model_sync]
+metal_refinery_tz.patches.v16_1.add_palladium_metal_type

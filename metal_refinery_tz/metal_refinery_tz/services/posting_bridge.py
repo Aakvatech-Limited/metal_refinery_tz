@@ -253,6 +253,9 @@ def create_wip_transfer_draft(batch):
     item = _raw_item_for_metal(profile, batch.metal_type)
     if item.stock_uom != batch.weight_uom:
         frappe.throw(_("Batch and ERPNext stock item must use the same UOM"))
+    # Repeat refining represents existing WIP, not a new raw-metal receipt.
+    if any(frappe.db.get_value("Metal Lot", r.metal_lot, "source_refining_batch") for r in batch.inputs):
+        return
     rows = []
     for input_row in batch.inputs:
         lot = frappe.get_doc("Metal Lot", input_row.metal_lot)

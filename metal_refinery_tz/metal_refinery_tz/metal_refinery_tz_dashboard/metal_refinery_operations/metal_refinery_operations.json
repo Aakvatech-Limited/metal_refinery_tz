@@ -14,6 +14,9 @@
     },
     {
       "chart": "Toll Refining Jobs by Metal"
+    },
+    {
+      "chart": "Refining Rounds by Number"
     }
   ],
   "cards": [
@@ -37,6 +40,9 @@
     },
     {
       "card": "Pending Metal Releases"
+    },
+    {
+      "card": "Repeat Refining Rounds"
     }
   ]
 }
