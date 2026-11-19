@@ -181,10 +181,13 @@ for kind, collection, field, names, folder in (
         source = doctypes[doc["document_type"]]
         fields = {f["fieldname"] for f in source["fields"]} | {"docstatus"}
         filters = json.loads(doc["filters_json"])
-        assert all(f[0] in fields for f in filters), path
+        # Desk filter widgets expect [doctype, fieldname, operator, value, hidden];
+        # the 3-element form raises "Invalid filter" popups in chart and card UIs.
+        assert all(len(f) == 5 and f[0] == doc["document_type"] and f[1] in fields
+                   for f in filters), path
         if kind == "chart":
             assert doc["group_by_based_on"] in fields, path
-            assert ["docstatus", "!=", 2] in filters, path
+            assert [doc["document_type"], "docstatus", "!=", 2, False] in filters, path
 
 dock = json.loads((PACKAGE / "dock/metal_refinery_tz/metal_refinery_tz.json").read_text())
 assert dock["standard"] == 1 and dock["app"] == "metal_refinery_tz"
