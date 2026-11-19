@@ -8,7 +8,7 @@
   "type": "Document Type",
   "document_type": "Refining Batch",
   "function": "Count",
-  "filters_json": "[[\"docstatus\",\"=\",1],[\"round_number\",\">\",1]]",
+  "filters_json": "[[\"Refining Batch\",\"docstatus\",\"=\",1,false],[\"Refining Batch\",\"round_number\",\">\",1,false]]",
   "dynamic_filters_json": "[]",
   "show_percentage_stats": 0
 }

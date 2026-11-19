@@ -7,6 +7,7 @@ from decimal import Decimal
 
 import frappe
 from frappe import _
+from frappe.utils import getdate
 
 from metal_refinery_tz.metal_refinery_tz.services.metal_math import decimal, fine, weight
 
@@ -63,7 +64,8 @@ def validate_round(doc):
                 frappe.throw(_("Refined input must originate from submitted batch in the same company"))
             if previous.name == doc.name:
                 frappe.throw(_("A refining batch cannot consume its own output"))
-            if previous.batch_date > doc.batch_date:
+            # Form and API saves pass the date as a string; stored values are dates.
+            if getdate(previous.batch_date) > getdate(doc.batch_date):
                 frappe.throw(_("Refining round cannot predate its source batch"))
     doc.round_number = 1 + max(
         (int(frappe.db.get_value("Refining Batch", source, "round_number") or 1) for source in sources),

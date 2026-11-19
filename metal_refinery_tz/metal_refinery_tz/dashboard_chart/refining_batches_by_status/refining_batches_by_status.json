@@ -11,7 +11,7 @@
   "group_by_type": "Count",
   "type": "Bar",
   "timeseries": 0,
-  "filters_json": "[[\"docstatus\",\"!=\",2]]",
+  "filters_json": "[[\"Refining Batch\",\"docstatus\",\"!=\",2,false]]",
   "dynamic_filters_json": "[]",
   "number_of_groups": 10
 }
